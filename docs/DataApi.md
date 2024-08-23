@@ -1,0 +1,343 @@
+# codex_client.DataApi
+
+All URIs are relative to *http://localhost:8080/api/codex/v1*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**download_local**](DataApi.md#download_local) | **GET** /data/{cid} | Download a file from the local node in a streaming manner. If the file is not available locally, a 404 is returned.
+[**download_network**](DataApi.md#download_network) | **GET** /data/{cid}/network | Download a file from the network in a streaming manner. If the file is not available locally, it will be retrieved from other nodes in the network if able.
+[**list_data**](DataApi.md#list_data) | **GET** /data | Lists manifest CIDs stored locally in node.
+[**space**](DataApi.md#space) | **GET** /space | Gets a summary of the storage space allocation of the node.
+[**upload**](DataApi.md#upload) | **POST** /data | Upload a file in a streaming manner. Once finished, the file is stored in the node and can be retrieved by any node in the network using the returned CID.
+
+
+# **download_local**
+> bytearray download_local(cid)
+
+Download a file from the local node in a streaming manner. If the file is not available locally, a 404 is returned.
+
+### Example
+
+
+```python
+import codex_client
+from codex_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = codex_client.Configuration(
+    host = "http://localhost:8080/api/codex/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with codex_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = codex_client.DataApi(api_client)
+    cid = 'cid_example' # str | File to be downloaded.
+
+    try:
+        # Download a file from the local node in a streaming manner. If the file is not available locally, a 404 is returned.
+        api_response = api_instance.download_local(cid)
+        print("The response of DataApi->download_local:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DataApi->download_local: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cid** | **str**| File to be downloaded. | 
+
+### Return type
+
+**bytearray**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved content specified by CID |  -  |
+**400** | Invalid CID is specified |  -  |
+**404** | Content specified by the CID is unavailable locally |  -  |
+**500** | Well it was bad-bad |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **download_network**
+> bytearray download_network(cid)
+
+Download a file from the network in a streaming manner. If the file is not available locally, it will be retrieved from other nodes in the network if able.
+
+### Example
+
+
+```python
+import codex_client
+from codex_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = codex_client.Configuration(
+    host = "http://localhost:8080/api/codex/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with codex_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = codex_client.DataApi(api_client)
+    cid = 'cid_example' # str | File to be downloaded.
+
+    try:
+        # Download a file from the network in a streaming manner. If the file is not available locally, it will be retrieved from other nodes in the network if able.
+        api_response = api_instance.download_network(cid)
+        print("The response of DataApi->download_network:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DataApi->download_network: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cid** | **str**| File to be downloaded. | 
+
+### Return type
+
+**bytearray**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved content specified by CID |  -  |
+**400** | Invalid CID is specified |  -  |
+**404** | Content specified by the CID is not found |  -  |
+**500** | Well it was bad-bad |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_data**
+> DataList list_data()
+
+Lists manifest CIDs stored locally in node.
+
+### Example
+
+
+```python
+import codex_client
+from codex_client.models.data_list import DataList
+from codex_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = codex_client.Configuration(
+    host = "http://localhost:8080/api/codex/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with codex_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = codex_client.DataApi(api_client)
+
+    try:
+        # Lists manifest CIDs stored locally in node.
+        api_response = api_instance.list_data()
+        print("The response of DataApi->list_data:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DataApi->list_data: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DataList**](DataList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Retrieved list of content CIDs |  -  |
+**400** | Invalid CID is specified |  -  |
+**404** | Content specified by the CID is not found |  -  |
+**500** | Well it was bad-bad |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **space**
+> Space space()
+
+Gets a summary of the storage space allocation of the node.
+
+### Example
+
+
+```python
+import codex_client
+from codex_client.models.space import Space
+from codex_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = codex_client.Configuration(
+    host = "http://localhost:8080/api/codex/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with codex_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = codex_client.DataApi(api_client)
+
+    try:
+        # Gets a summary of the storage space allocation of the node.
+        api_response = api_instance.space()
+        print("The response of DataApi->space:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DataApi->space: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Space**](Space.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Summary of storage allocation |  -  |
+**500** | It&#39;s not working as planned |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upload**
+> str upload(body=body)
+
+Upload a file in a streaming manner. Once finished, the file is stored in the node and can be retrieved by any node in the network using the returned CID.
+
+### Example
+
+
+```python
+import codex_client
+from codex_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = codex_client.Configuration(
+    host = "http://localhost:8080/api/codex/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with codex_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = codex_client.DataApi(api_client)
+    body = None # bytearray |  (optional)
+
+    try:
+        # Upload a file in a streaming manner. Once finished, the file is stored in the node and can be retrieved by any node in the network using the returned CID.
+        api_response = api_instance.upload(body=body)
+        print("The response of DataApi->upload:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DataApi->upload: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | **bytearray**|  | [optional] 
+
+### Return type
+
+**str**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/octet-stream
+ - **Accept**: text/plain
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | CID of uploaded file |  -  |
+**500** | Well it was bad-bad and the upload did not work out |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
