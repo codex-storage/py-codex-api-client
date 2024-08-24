@@ -98,7 +98,7 @@ Class | Method | HTTP request | Description
 *MarketplaceApi* | [**get_offered_storage**](docs/MarketplaceApi.md#get_offered_storage) | **GET** /sales/availability | Returns storage that is for sale
 *MarketplaceApi* | [**get_purchase**](docs/MarketplaceApi.md#get_purchase) | **GET** /storage/purchases/{id} | Returns purchase details
 *MarketplaceApi* | [**get_purchases**](docs/MarketplaceApi.md#get_purchases) | **GET** /storage/purchases | Returns list of purchase IDs
-*MarketplaceApi* | [**get_reservations**](docs/MarketplaceApi.md#get_reservations) | **PATCH** /sales/availability/{id}/reservations | Get availability&#39;s reservations
+*MarketplaceApi* | [**get_reservations**](docs/MarketplaceApi.md#get_reservations) | **GET** /sales/availability/{id}/reservations | Get availability&#39;s reservations
 *MarketplaceApi* | [**offer_storage**](docs/MarketplaceApi.md#offer_storage) | **POST** /sales/availability | Offers storage for sale
 *MarketplaceApi* | [**update_offered_storage**](docs/MarketplaceApi.md#update_offered_storage) | **PATCH** /sales/availability/{id} | Updates availability
 *NodeApi* | [**connect_peer**](docs/NodeApi.md#connect_peer) | **GET** /connect/{peerId} | Connect to a peer

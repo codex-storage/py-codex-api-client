@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from codex_client.models.storage_request import StorageRequest
 from typing import Optional, Set
@@ -31,6 +31,16 @@ class Purchase(BaseModel):
     error: Optional[StrictStr] = Field(default=None, description="If Request failed, then here is presented the error message")
     request: Optional[StorageRequest] = None
     __properties: ClassVar[List[str]] = ["state", "error", "request"]
+
+    @field_validator('state')
+    def state_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['cancelled', 'error', 'failed', 'finished', 'pending', 'started', 'submitted', 'unknown']):
+            raise ValueError("must be one of enum values ('cancelled', 'error', 'failed', 'finished', 'pending', 'started', 'submitted', 'unknown')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

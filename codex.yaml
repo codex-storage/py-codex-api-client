@@ -259,6 +259,15 @@ components:
         state:
           type: string
           description: Description of the Request's state
+          enum:
+            - cancelled
+            - error
+            - failed
+            - finished
+            - pending
+            - started
+            - submitted
+            - unknown
         error:
           type: string
           description: If Request failed, then here is presented the error message
@@ -345,7 +354,7 @@ paths:
           name: peerId
           required: true
           schema:
-              $ref: "#/components/schemas/PeerId"
+            $ref: "#/components/schemas/PeerId"
           description: Peer that should be dialed.
         - in: query
           name: addrs
@@ -414,7 +423,7 @@ paths:
           name: cid
           required: true
           schema:
-              $ref: "#/components/schemas/Cid"
+            $ref: "#/components/schemas/Cid"
           description: File to be downloaded.
 
       responses:
@@ -442,7 +451,7 @@ paths:
           name: cid
           required: true
           schema:
-              $ref: "#/components/schemas/Cid"
+            $ref: "#/components/schemas/Cid"
           description: "File to be downloaded."
       responses:
         "200":
@@ -600,7 +609,7 @@ paths:
           description: Sales are unavailable
 
   "/sales/availability/{id}/reservations":
-    patch:
+    get:
       summary: "Get availability's reservations"
       description: Return's list of Reservations for ongoing Storage Requests that the node hosts.
       operationId: getReservations

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**get_offered_storage**](MarketplaceApi.md#get_offered_storage) | **GET** /sales/availability | Returns storage that is for sale
 [**get_purchase**](MarketplaceApi.md#get_purchase) | **GET** /storage/purchases/{id} | Returns purchase details
 [**get_purchases**](MarketplaceApi.md#get_purchases) | **GET** /storage/purchases | Returns list of purchase IDs
-[**get_reservations**](MarketplaceApi.md#get_reservations) | **PATCH** /sales/availability/{id}/reservations | Get availability&#39;s reservations
+[**get_reservations**](MarketplaceApi.md#get_reservations) | **GET** /sales/availability/{id}/reservations | Get availability&#39;s reservations
 [**offer_storage**](MarketplaceApi.md#offer_storage) | **POST** /sales/availability | Offers storage for sale
 [**update_offered_storage**](MarketplaceApi.md#update_offered_storage) | **PATCH** /sales/availability/{id} | Updates availability
 

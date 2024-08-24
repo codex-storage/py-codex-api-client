@@ -1850,7 +1850,7 @@ class MarketplaceApi:
         ]
 
         return self.api_client.param_serialize(
-            method='PATCH',
+            method='GET',
             resource_path='/sales/availability/{id}/reservations',
             path_params=_path_params,
             query_params=_query_params,
