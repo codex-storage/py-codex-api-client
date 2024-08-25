@@ -294,14 +294,14 @@ components:
           type: string
           description: Description of the Request's state
           enum:
-            - PurchaseCancelled
-            - PurchaseError
-            - PurchaseFailed
-            - PurchaseFinished
-            - PurchasePending
-            - PurchaseStarted
-            - PurchaseSubmitted
-            - PurchaseUnknown
+            - cancelled
+            - error
+            - failed
+            - finished
+            - pending
+            - started
+            - submitted
+            - unknown
         error:
           type: string
           description: If Request failed, then here is presented the error message
