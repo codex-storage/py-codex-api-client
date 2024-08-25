@@ -219,7 +219,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_availabilities**
-> List[SalesAvailability] get_availabilities()
+> List[SalesAvailabilityREAD] get_availabilities()
 
 Returns storage that is for sale
 
@@ -228,7 +228,7 @@ Returns storage that is for sale
 
 ```python
 import codex_client
-from codex_client.models.sales_availability import SalesAvailability
+from codex_client.models.sales_availability_read import SalesAvailabilityREAD
 from codex_client.rest import ApiException
 from pprint import pprint
 
@@ -261,7 +261,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List[SalesAvailability]**](SalesAvailability.md)
+[**List[SalesAvailabilityREAD]**](SalesAvailabilityREAD.md)
 
 ### Authorization
 

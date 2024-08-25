@@ -578,7 +578,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/SalesAvailability"
+                  $ref: "#/components/schemas/SalesAvailabilityREAD"
         "500":
           description: Error getting unused availabilities
         "503":

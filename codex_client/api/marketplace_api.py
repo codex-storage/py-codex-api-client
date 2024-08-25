@@ -860,7 +860,7 @@ class MarketplaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[SalesAvailability]:
+    ) -> List[SalesAvailabilityREAD]:
         """Returns storage that is for sale
 
 
@@ -894,7 +894,7 @@ class MarketplaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesAvailability]",
+            '200': "List[SalesAvailabilityREAD]",
             '500': None,
             '503': None,
         }
@@ -924,7 +924,7 @@ class MarketplaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[SalesAvailability]]:
+    ) -> ApiResponse[List[SalesAvailabilityREAD]]:
         """Returns storage that is for sale
 
 
@@ -958,7 +958,7 @@ class MarketplaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesAvailability]",
+            '200': "List[SalesAvailabilityREAD]",
             '500': None,
             '503': None,
         }
@@ -1022,7 +1022,7 @@ class MarketplaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[SalesAvailability]",
+            '200': "List[SalesAvailabilityREAD]",
             '500': None,
             '503': None,
         }
