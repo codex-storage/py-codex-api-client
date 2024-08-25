@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**create_storage_request**](MarketplaceApi.md#create_storage_request) | **POST** /storage/request/{cid} | Creates a new Request for storage
 [**get_active_slot_by_id**](MarketplaceApi.md#get_active_slot_by_id) | **GET** /sales/slots/{slotId} | Returns active slot with id {slotId} for the host
 [**get_active_slots**](MarketplaceApi.md#get_active_slots) | **GET** /sales/slots | Returns active slots
-[**get_offered_storage**](MarketplaceApi.md#get_offered_storage) | **GET** /sales/availability | Returns storage that is for sale
+[**get_availabilities**](MarketplaceApi.md#get_availabilities) | **GET** /sales/availability | Returns storage that is for sale
 [**get_purchase**](MarketplaceApi.md#get_purchase) | **GET** /storage/purchases/{id} | Returns purchase details
 [**get_purchases**](MarketplaceApi.md#get_purchases) | **GET** /storage/purchases | Returns list of purchase IDs
 [**get_reservations**](MarketplaceApi.md#get_reservations) | **GET** /sales/availability/{id}/reservations | Get availability&#39;s reservations
@@ -218,8 +218,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_offered_storage**
-> List[SalesAvailability] get_offered_storage()
+# **get_availabilities**
+> List[SalesAvailability] get_availabilities()
 
 Returns storage that is for sale
 
@@ -246,11 +246,11 @@ with codex_client.ApiClient(configuration) as api_client:
 
     try:
         # Returns storage that is for sale
-        api_response = api_instance.get_offered_storage()
-        print("The response of MarketplaceApi->get_offered_storage:\n")
+        api_response = api_instance.get_availabilities()
+        print("The response of MarketplaceApi->get_availabilities:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MarketplaceApi->get_offered_storage: %s\n" % e)
+        print("Exception when calling MarketplaceApi->get_availabilities: %s\n" % e)
 ```
 
 

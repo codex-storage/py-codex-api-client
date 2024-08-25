@@ -846,7 +846,7 @@ class MarketplaceApi:
 
 
     @validate_call
-    def get_offered_storage(
+    def get_availabilities(
         self,
         _request_timeout: Union[
             None,
@@ -886,7 +886,7 @@ class MarketplaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_offered_storage_serialize(
+        _param = self._get_availabilities_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -910,7 +910,7 @@ class MarketplaceApi:
 
 
     @validate_call
-    def get_offered_storage_with_http_info(
+    def get_availabilities_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -950,7 +950,7 @@ class MarketplaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_offered_storage_serialize(
+        _param = self._get_availabilities_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -974,7 +974,7 @@ class MarketplaceApi:
 
 
     @validate_call
-    def get_offered_storage_without_preload_content(
+    def get_availabilities_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1014,7 +1014,7 @@ class MarketplaceApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_offered_storage_serialize(
+        _param = self._get_availabilities_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1033,7 +1033,7 @@ class MarketplaceApi:
         return response_data.response
 
 
-    def _get_offered_storage_serialize(
+    def _get_availabilities_serialize(
         self,
         _request_auth,
         _content_type,

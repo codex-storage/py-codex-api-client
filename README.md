@@ -95,7 +95,7 @@ Class | Method | HTTP request | Description
 *MarketplaceApi* | [**create_storage_request**](docs/MarketplaceApi.md#create_storage_request) | **POST** /storage/request/{cid} | Creates a new Request for storage
 *MarketplaceApi* | [**get_active_slot_by_id**](docs/MarketplaceApi.md#get_active_slot_by_id) | **GET** /sales/slots/{slotId} | Returns active slot with id {slotId} for the host
 *MarketplaceApi* | [**get_active_slots**](docs/MarketplaceApi.md#get_active_slots) | **GET** /sales/slots | Returns active slots
-*MarketplaceApi* | [**get_offered_storage**](docs/MarketplaceApi.md#get_offered_storage) | **GET** /sales/availability | Returns storage that is for sale
+*MarketplaceApi* | [**get_availabilities**](docs/MarketplaceApi.md#get_availabilities) | **GET** /sales/availability | Returns storage that is for sale
 *MarketplaceApi* | [**get_purchase**](docs/MarketplaceApi.md#get_purchase) | **GET** /storage/purchases/{id} | Returns purchase details
 *MarketplaceApi* | [**get_purchases**](docs/MarketplaceApi.md#get_purchases) | **GET** /storage/purchases | Returns list of purchase IDs
 *MarketplaceApi* | [**get_reservations**](docs/MarketplaceApi.md#get_reservations) | **GET** /sales/availability/{id}/reservations | Get availability&#39;s reservations
