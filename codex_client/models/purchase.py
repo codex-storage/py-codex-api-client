@@ -38,8 +38,8 @@ class Purchase(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['cancelled', 'error', 'failed', 'finished', 'pending', 'started', 'submitted', 'unknown']):
-            raise ValueError("must be one of enum values ('cancelled', 'error', 'failed', 'finished', 'pending', 'started', 'submitted', 'unknown')")
+        if value not in set(['PurchaseCancelled', 'PurchaseError', 'PurchaseFailed', 'PurchaseFinished', 'PurchasePending', 'PurchaseStarted', 'PurchaseSubmitted', 'PurchaseUnknown']):
+            raise ValueError("must be one of enum values ('PurchaseCancelled', 'PurchaseError', 'PurchaseFailed', 'PurchaseFinished', 'PurchasePending', 'PurchaseStarted', 'PurchaseSubmitted', 'PurchaseUnknown')")
         return value
 
     model_config = ConfigDict(

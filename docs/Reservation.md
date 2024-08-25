@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **availability_id** | **str** | 32bits identifier encoded in hex-decimal string. | [optional] 
 **size** | **str** | Integer represented as decimal string | [optional] 
 **request_id** | **str** | 32bits identifier encoded in hex-decimal string. | [optional] 
-**slot_index** | **str** | Slot Index as hexadecimal string | [optional] 
+**slot_index** | **str** | Slot Index as decimal string | [optional] 
 
 ## Example
 

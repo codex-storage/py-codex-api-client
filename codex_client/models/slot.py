@@ -29,7 +29,7 @@ class Slot(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="Keccak hash of the abi encoded tuple (RequestId, slot index)")
     request: Optional[StorageRequest] = None
-    slot_index: Optional[StrictStr] = Field(default=None, description="Slot Index as hexadecimal string", alias="slotIndex")
+    slot_index: Optional[StrictStr] = Field(default=None, description="Slot Index as decimal string", alias="slotIndex")
     __properties: ClassVar[List[str]] = ["id", "request", "slotIndex"]
 
     model_config = ConfigDict(

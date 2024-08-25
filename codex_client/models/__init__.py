@@ -29,6 +29,7 @@ from codex_client.models.sales_availability import SalesAvailability
 from codex_client.models.sales_availability_create import SalesAvailabilityCREATE
 from codex_client.models.sales_availability_read import SalesAvailabilityREAD
 from codex_client.models.slot import Slot
+from codex_client.models.slot_agent import SlotAgent
 from codex_client.models.space import Space
 from codex_client.models.storage_ask import StorageAsk
 from codex_client.models.storage_request import StorageRequest

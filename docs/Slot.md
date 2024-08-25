@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Keccak hash of the abi encoded tuple (RequestId, slot index) | [optional] 
 **request** | [**StorageRequest**](StorageRequest.md) |  | [optional] 
-**slot_index** | **str** | Slot Index as hexadecimal string | [optional] 
+**slot_index** | **str** | Slot Index as decimal string | [optional] 
 
 ## Example
 

@@ -25,6 +25,7 @@ from codex_client.models.sales_availability import SalesAvailability
 from codex_client.models.sales_availability_create import SalesAvailabilityCREATE
 from codex_client.models.sales_availability_read import SalesAvailabilityREAD
 from codex_client.models.slot import Slot
+from codex_client.models.slot_agent import SlotAgent
 from codex_client.models.storage_request_creation import StorageRequestCreation
 
 from codex_client.api_client import ApiClient, RequestSerialized
@@ -353,7 +354,7 @@ class MarketplaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Slot:
+    ) -> SlotAgent:
         """Returns active slot with id {slotId} for the host
 
 
@@ -390,7 +391,7 @@ class MarketplaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Slot",
+            '200': "SlotAgent",
             '400': None,
             '404': None,
             '503': None,
@@ -422,7 +423,7 @@ class MarketplaceApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Slot]:
+    ) -> ApiResponse[SlotAgent]:
         """Returns active slot with id {slotId} for the host
 
 
@@ -459,7 +460,7 @@ class MarketplaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Slot",
+            '200': "SlotAgent",
             '400': None,
             '404': None,
             '503': None,
@@ -528,7 +529,7 @@ class MarketplaceApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Slot",
+            '200': "SlotAgent",
             '400': None,
             '404': None,
             '503': None,

@@ -28,6 +28,7 @@ codex_client/models/sales_availability.py
 codex_client/models/sales_availability_create.py
 codex_client/models/sales_availability_read.py
 codex_client/models/slot.py
+codex_client/models/slot_agent.py
 codex_client/models/space.py
 codex_client/models/spr_read.py
 codex_client/models/storage_ask.py
@@ -54,6 +55,7 @@ docs/SalesAvailability.md
 docs/SalesAvailabilityCREATE.md
 docs/SalesAvailabilityREAD.md
 docs/Slot.md
+docs/SlotAgent.md
 docs/Space.md
 docs/StorageAsk.md
 docs/StorageRequest.md
@@ -65,4 +67,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_slot_agent.py
 tox.ini

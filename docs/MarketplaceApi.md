@@ -82,12 +82,12 @@ No authorization required
 **200** | Returns the Request ID as decimal string |  -  |
 **400** | Invalid or missing Request ID |  -  |
 **404** | Request ID not found |  -  |
-**503** | Purchasing is unavailable |  -  |
+**503** | Persistence is not enabled |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_active_slot_by_id**
-> Slot get_active_slot_by_id(slot_id)
+> SlotAgent get_active_slot_by_id(slot_id)
 
 Returns active slot with id {slotId} for the host
 
@@ -96,7 +96,7 @@ Returns active slot with id {slotId} for the host
 
 ```python
 import codex_client
-from codex_client.models.slot import Slot
+from codex_client.models.slot_agent import SlotAgent
 from codex_client.rest import ApiException
 from pprint import pprint
 
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Slot**](Slot.md)
+[**SlotAgent**](SlotAgent.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ No authorization required
 **200** | Retrieved active slot |  -  |
 **400** | Invalid or missing SlotId |  -  |
 **404** | Host is not in an active sale for the slot |  -  |
-**503** | Sales are unavailable |  -  |
+**503** | Persistence is not enabled |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -214,7 +214,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Retrieved active slots |  -  |
-**503** | Sales are unavailable |  -  |
+**503** | Persistence is not enabled |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -278,7 +278,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Retrieved storage availabilities of the node |  -  |
 **500** | Error getting unused availabilities |  -  |
-**503** | Sales are unavailable |  -  |
+**503** | Persistence is not enabled |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -347,7 +347,7 @@ No authorization required
 **200** | Purchase details |  -  |
 **400** | Invalid or missing Purchase ID |  -  |
 **404** | Purchase not found |  -  |
-**503** | Purchasing is unavailable |  -  |
+**503** | Persistence is not enabled |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -409,7 +409,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Gets all purchase IDs stored in node |  -  |
-**503** | Purchasing is unavailable |  -  |
+**503** | Persistence is not enabled |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -481,7 +481,7 @@ No authorization required
 **400** | Invalid Availability ID |  -  |
 **404** | Availability not found |  -  |
 **500** | Error getting reservations |  -  |
-**503** | Sales are unavailable |  -  |
+**503** | Persistence is not enabled |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -552,7 +552,7 @@ No authorization required
 **400** | Invalid data input |  -  |
 **422** | Not enough node&#39;s storage quota available |  -  |
 **500** | Error reserving availability |  -  |
-**503** | Sales are unavailable |  -  |
+**503** | Persistence is not enabled |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -625,7 +625,7 @@ No authorization required
 **404** | Availability not found |  -  |
 **422** | Not enough node&#39;s storage quota available |  -  |
 **500** | Error reserving availability |  -  |
-**503** | Sales are unavailable |  -  |
+**503** | Persistence is not enabled |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

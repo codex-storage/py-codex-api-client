@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,7 +27,7 @@ class SalesAvailabilityREAD(BaseModel):
     """
     SalesAvailabilityREAD
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="32bits identifier encoded in hex-decimal string.")
+    id: Optional[Annotated[str, Field(min_length=66, strict=True, max_length=66)]] = Field(default=None, description="32bits identifier encoded in hex-decimal string.")
     total_size: Optional[StrictStr] = Field(default=None, description="Total size of availability's storage in bytes as decimal string", alias="totalSize")
     duration: Optional[StrictStr] = Field(default=None, description="The duration of the request in seconds as decimal string")
     min_price: Optional[StrictStr] = Field(default=None, description="Minimum price to be paid (in amount of tokens) as decimal string", alias="minPrice")

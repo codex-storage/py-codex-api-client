@@ -123,6 +123,7 @@ Class | Method | HTTP request | Description
  - [SalesAvailabilityCREATE](docs/SalesAvailabilityCREATE.md)
  - [SalesAvailabilityREAD](docs/SalesAvailabilityREAD.md)
  - [Slot](docs/Slot.md)
+ - [SlotAgent](docs/SlotAgent.md)
  - [Space](docs/Space.md)
  - [StorageAsk](docs/StorageAsk.md)
  - [StorageRequest](docs/StorageRequest.md)
