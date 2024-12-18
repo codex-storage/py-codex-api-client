@@ -1,4 +1,3 @@
-.github/workflows/python.yml
 .gitignore
 README.md
 codex_api_client/__init__.py
