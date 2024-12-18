@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.storage_request_creation import StorageRequestCreation
+from codex_api_client.models.storage_request_creation import StorageRequestCreation
 
 class TestStorageRequestCreation(unittest.TestCase):
     """StorageRequestCreation unit test stubs"""

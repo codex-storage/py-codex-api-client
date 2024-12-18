@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.content import Content
+from codex_api_client.models.content import Content
 
 class TestContent(unittest.TestCase):
     """Content unit test stubs"""
@@ -35,13 +35,7 @@ class TestContent(unittest.TestCase):
         model = Content()
         if include_optional:
             return Content(
-                cid = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N',
-                erasure = codex_client.models.erasure_parameters.ErasureParameters(
-                    total_chunks = 56, ),
-                por = codex_client.models.po_r_parameters.PoRParameters(
-                    u = '', 
-                    public_key = '', 
-                    name = '', )
+                cid = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N'
             )
         else:
             return Content(

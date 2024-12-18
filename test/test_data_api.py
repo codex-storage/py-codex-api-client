@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.api.data_api import DataApi
+from codex_api_client.api.data_api import DataApi
 
 
 class TestDataApi(unittest.TestCase):
@@ -35,6 +35,20 @@ class TestDataApi(unittest.TestCase):
 
     def test_download_network(self) -> None:
         """Test case for download_network
+
+        Download a file from the network to the local node if it's not available locally. Note: Download is performed async. Call can return before download is completed.
+        """
+        pass
+
+    def test_download_network_manifest(self) -> None:
+        """Test case for download_network_manifest
+
+        Download only the dataset manifest from the network to the local node if it's not available locally.
+        """
+        pass
+
+    def test_download_network_stream(self) -> None:
+        """Test case for download_network_stream
 
         Download a file from the network in a streaming manner. If the file is not available locally, it will be retrieved from other nodes in the network if able.
         """

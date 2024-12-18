@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.storage_request import StorageRequest
+from codex_api_client.models.storage_request import StorageRequest
 
 class TestStorageRequest(unittest.TestCase):
     """StorageRequest unit test stubs"""
@@ -37,21 +37,15 @@ class TestStorageRequest(unittest.TestCase):
             return StorageRequest(
                 id = '',
                 client = '',
-                ask = codex_client.models.storage_ask.StorageAsk(
+                ask = codex_api_client.models.storage_ask.StorageAsk(
                     slots = 56, 
                     slot_size = '', 
                     duration = '', 
                     proof_probability = '', 
                     reward = '', 
                     max_slot_loss = 56, ),
-                content = codex_client.models.content.Content(
-                    cid = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N', 
-                    erasure = codex_client.models.erasure_parameters.ErasureParameters(
-                        total_chunks = 56, ), 
-                    por = codex_client.models.po_r_parameters.PoRParameters(
-                        u = '', 
-                        public_key = '', 
-                        name = '', ), ),
+                content = codex_api_client.models.content.Content(
+                    cid = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N', ),
                 expiry = '10 minutes',
                 nonce = ''
             )

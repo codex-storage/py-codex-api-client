@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.data_list import DataList
+from codex_api_client.models.data_list import DataList
 
 class TestDataList(unittest.TestCase):
     """DataList unit test stubs"""
@@ -36,13 +36,16 @@ class TestDataList(unittest.TestCase):
         if include_optional:
             return DataList(
                 content = [
-                    codex_client.models.data_item.DataItem(
+                    codex_api_client.models.data_item.DataItem(
                         cid = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N', 
-                        manifest = codex_client.models.manifest_item.ManifestItem(
-                            root_hash = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N', 
-                            original_bytes = 56, 
+                        manifest = codex_api_client.models.manifest_item.ManifestItem(
+                            tree_cid = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N', 
+                            dataset_size = 56, 
                             block_size = 56, 
-                            protected = True, ), )
+                            protected = True, 
+                            filename = 'codex.png', 
+                            mimetype = 'image/png', 
+                            uploaded_at = 1729244192, ), )
                     ]
             )
         else:

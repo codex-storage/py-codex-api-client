@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.reservation import Reservation
+from codex_api_client.models.reservation import Reservation
 
 class TestReservation(unittest.TestCase):
     """Reservation unit test stubs"""

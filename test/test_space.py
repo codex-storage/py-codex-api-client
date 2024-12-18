@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.space import Space
+from codex_api_client.models.space import Space
 
 class TestSpace(unittest.TestCase):
     """Space unit test stubs"""

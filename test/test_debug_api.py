@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.api.debug_api import DebugApi
+from codex_api_client.api.debug_api import DebugApi
 
 
 class TestDebugApi(unittest.TestCase):

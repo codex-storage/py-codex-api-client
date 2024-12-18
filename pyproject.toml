@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "codex_api_client"
-version = "0.1.0"
+version = "0.0.1"
 description = "Codex API"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"

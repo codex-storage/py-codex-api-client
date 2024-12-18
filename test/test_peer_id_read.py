@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.peer_id_read import PeerIdRead
+from codex_api_client.models.peer_id_read import PeerIdRead
 
 class TestPeerIdRead(unittest.TestCase):
     """PeerIdRead unit test stubs"""

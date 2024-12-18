@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.debug_info import DebugInfo
+from codex_api_client.models.debug_info import DebugInfo
 
 class TestDebugInfo(unittest.TestCase):
     """DebugInfo unit test stubs"""
@@ -40,7 +40,25 @@ class TestDebugInfo(unittest.TestCase):
                     '/ip4/127.0.0.1/tcp/8080'
                     ],
                 repo = '',
-                spr = ''
+                spr = '',
+                table = codex_api_client.models.peers_table.PeersTable(
+                    local_node = codex_api_client.models.node.Node(
+                        node_id = '', 
+                        peer_id = '', 
+                        record = '', 
+                        address = '', 
+                        seen = True, ), 
+                    nodes = [
+                        codex_api_client.models.node.Node(
+                            node_id = '', 
+                            peer_id = '', 
+                            record = '', 
+                            address = '', 
+                            seen = True, )
+                        ], ),
+                codex = codex_api_client.models.codex_version.CodexVersion(
+                    version = 'v0.1.7', 
+                    revision = '0c647d8', )
             )
         else:
             return DebugInfo(

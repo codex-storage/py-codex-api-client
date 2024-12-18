@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.api.marketplace_api import MarketplaceApi
+from codex_api_client.api.marketplace_api import MarketplaceApi
 
 
 class TestMarketplaceApi(unittest.TestCase):
@@ -47,8 +47,8 @@ class TestMarketplaceApi(unittest.TestCase):
         """
         pass
 
-    def test_get_offered_storage(self) -> None:
-        """Test case for get_offered_storage
+    def test_get_availabilities(self) -> None:
+        """Test case for get_availabilities
 
         Returns storage that is for sale
         """

@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.sales_availability_read import SalesAvailabilityREAD
+from codex_api_client.models.sales_availability_read import SalesAvailabilityREAD
 
 class TestSalesAvailabilityREAD(unittest.TestCase):
     """SalesAvailabilityREAD unit test stubs"""

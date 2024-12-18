@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.api.node_api import NodeApi
+from codex_api_client.api.node_api import NodeApi
 
 
 class TestNodeApi(unittest.TestCase):

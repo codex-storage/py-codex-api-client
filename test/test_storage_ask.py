@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.storage_ask import StorageAsk
+from codex_api_client.models.storage_ask import StorageAsk
 
 class TestStorageAsk(unittest.TestCase):
     """StorageAsk unit test stubs"""

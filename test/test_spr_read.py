@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.spr_read import SPRRead
+from codex_api_client.models.spr_read import SPRRead
 
 class TestSPRRead(unittest.TestCase):
     """SPRRead unit test stubs"""

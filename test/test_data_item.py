@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.data_item import DataItem
+from codex_api_client.models.data_item import DataItem
 
 class TestDataItem(unittest.TestCase):
     """DataItem unit test stubs"""
@@ -36,11 +36,14 @@ class TestDataItem(unittest.TestCase):
         if include_optional:
             return DataItem(
                 cid = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N',
-                manifest = codex_client.models.manifest_item.ManifestItem(
-                    root_hash = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N', 
-                    original_bytes = 56, 
+                manifest = codex_api_client.models.manifest_item.ManifestItem(
+                    tree_cid = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N', 
+                    dataset_size = 56, 
                     block_size = 56, 
-                    protected = True, )
+                    protected = True, 
+                    filename = 'codex.png', 
+                    mimetype = 'image/png', 
+                    uploaded_at = 1729244192, )
             )
         else:
             return DataItem(

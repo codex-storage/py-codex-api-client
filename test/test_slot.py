@@ -14,7 +14,7 @@
 
 import unittest
 
-from codex_client.models.slot import Slot
+from codex_api_client.models.slot import Slot
 
 class TestSlot(unittest.TestCase):
     """Slot unit test stubs"""
@@ -36,24 +36,18 @@ class TestSlot(unittest.TestCase):
         if include_optional:
             return Slot(
                 id = '268a781e0db3f7cf36b18e5f4fdb7f586ec9edd08e5500b17c0e518a769f114a',
-                request = codex_client.models.storage_request.StorageRequest(
+                request = codex_api_client.models.storage_request.StorageRequest(
                     id = '', 
                     client = '', 
-                    ask = codex_client.models.storage_ask.StorageAsk(
+                    ask = codex_api_client.models.storage_ask.StorageAsk(
                         slots = 56, 
                         slot_size = '', 
                         duration = '', 
                         proof_probability = '', 
                         reward = '', 
                         max_slot_loss = 56, ), 
-                    content = codex_client.models.content.Content(
-                        cid = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N', 
-                        erasure = codex_client.models.erasure_parameters.ErasureParameters(
-                            total_chunks = 56, ), 
-                        por = codex_client.models.po_r_parameters.PoRParameters(
-                            u = '', 
-                            public_key = '', 
-                            name = '', ), ), 
+                    content = codex_api_client.models.content.Content(
+                        cid = 'QmYyQSo1c1Ym7orWxLYvCrM2EmxFTANf8wXmmE7DWjhx5N', ), 
                     expiry = '10 minutes', 
                     nonce = '', ),
                 slot_index = ''
