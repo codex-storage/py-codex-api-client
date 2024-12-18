@@ -1,12 +1,12 @@
-# codex_client.NodeApi
+# codex_api_client.NodeApi
 
 All URIs are relative to *http://localhost:8080/api/codex/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**connect_peer**](NodeApi.md#connect_peer) | **GET** /connect/{peerId} | Connect to a peer
-[**get_peer_id**](NodeApi.md#get_peer_id) | **GET** /node/peerid | Get Node&#39;s PeerID
-[**get_spr**](NodeApi.md#get_spr) | **GET** /node/spr | Get Node&#39;s SPR
+[**get_peer_id**](NodeApi.md#get_peer_id) | **GET** /peerid | Get Node&#39;s PeerID
+[**get_spr**](NodeApi.md#get_spr) | **GET** /spr | Get Node&#39;s SPR
 
 
 # **connect_peer**
@@ -20,21 +20,21 @@ If `addrs` param is supplied, it will be used to dial the peer, otherwise the `p
 
 
 ```python
-import codex_client
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.NodeApi(api_client)
+    api_instance = codex_api_client.NodeApi(api_client)
     peer_id = 'peer_id_example' # str | Peer that should be dialed.
     addrs = ['addrs_example'] # List[str] | If supplied, it will be used to dial the peer. The address has to target the listening address of the peer, which is specified with the `--listen-addrs` CLI flag.  (optional)
 
@@ -86,21 +86,21 @@ Get Node's PeerID
 
 
 ```python
-import codex_client
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.NodeApi(api_client)
+    api_instance = codex_api_client.NodeApi(api_client)
 
     try:
         # Get Node's PeerID
@@ -147,21 +147,21 @@ Get Node's SPR
 
 
 ```python
-import codex_client
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.NodeApi(api_client)
+    api_instance = codex_api_client.NodeApi(api_client)
 
     try:
         # Get Node's SPR

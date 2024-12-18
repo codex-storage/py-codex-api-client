@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from codex_client.models.spr_read import SPRRead
+from codex_api_client.models.spr_read import SPRRead
 
 # TODO update the JSON string below
 json = "{}"

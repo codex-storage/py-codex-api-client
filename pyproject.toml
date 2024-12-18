@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "codex_client"
-version = "1.0.0"
+name = "codex_api_client"
+version = "0.1.0"
 description = "Codex API"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
 readme = "README.md"
-repository = "https://github.com/auhau/py-codex-api"
+repository = "https://github.com/codex-storage/py-codex-api-client"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Codex API"]
-include = ["codex_client/py.typed"]
+include = ["codex_api_client/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -34,7 +34,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "codex_client",
+  "codex_api_client",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]

@@ -1,0 +1,57 @@
+name: Generate code
+
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+  repository_dispatch:
+    types: [generate]
+  workflow_dispatch:
+    inputs:
+      openapi_url:
+        description: "OpenAPI URL that should be used"
+        required: true
+        type: string
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inputs handling
+        run: |
+          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
+            if [ -z "${{ github.event.client_payload.openapi_url }}" ]; then
+              echo "Error: 'openapi_url' is missing in client_payload."
+              exit 1
+            fi
+          
+            echo "OPENAPI_URL=${{ github.event.client_payload.openapi_url }}" >> $GITHUB_ENV
+          else
+            echo "OPENAPI_URL=${{ github.event.inputs.openapi_url }}" >> $GITHUB_ENV
+
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install OpenAPI Generator
+        run: npm install @openapitools/openapi-generator-cli -g
+
+      - name: Download OpenAPI spec
+        run: wget ${{OPENAPI_URL}}  -O codex.yaml
+
+      - name: Run generation
+        run: |
+          LATEST_VERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
+          ./generate.sh $LATEST_VERSION
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: generator
+          delete-branch: 'true'
+          title: 'Generated API update'
+          commit-message: 'Generated API update'
+

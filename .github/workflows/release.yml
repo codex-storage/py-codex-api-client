@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install OpenAPI Generator
+        run: npm install @openapitools/openapi-generator-cli -g
+
+      - name: Run generation
+        run: ./generate.sh ${{ github.event.release.tag_name }}
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Build distribution 📦
+        run: |
+          pip install build --user
+          python -m build
+
+      - name: Publish distribution 📦 to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: released
+          delete-branch: 'true'
+          title: 'Version update'
+          commit-message: 'Version update after release'

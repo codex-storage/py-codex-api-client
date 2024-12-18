@@ -6,14 +6,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **total_blocks** | **int** | Number of blocks stored by the node | [optional] 
-**quota_max_bytes** | **int** | Maximum storage space used by the node | [optional] 
-**quota_used_bytes** | **int** | Amount of storage space currently in use | [optional] 
-**quota_reserved_bytes** | **int** | Amount of storage space reserved | [optional] 
+**quota_max_bytes** | **int** | Maximum storage space (in bytes) available for the node in Codex&#39;s local repository. | [optional] 
+**quota_used_bytes** | **int** | Amount of storage space (in bytes) currently used for storing files in Codex&#39;s local repository. | [optional] 
+**quota_reserved_bytes** | **int** | Amount of storage reserved (in bytes) in the Codex&#39;s local repository for future use when storage requests will be picked up and hosted by the node using node&#39;s availabilities. This does not include the storage currently in use. | [optional] 
 
 ## Example
 
 ```python
-from codex_client.models.space import Space
+from codex_api_client.models.space import Space
 
 # TODO update the JSON string below
 json = "{}"

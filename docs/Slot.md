@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from codex_client.models.slot import Slot
+from codex_api_client.models.slot import Slot
 
 # TODO update the JSON string below
 json = "{}"

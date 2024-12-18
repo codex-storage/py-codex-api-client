@@ -1,11 +1,13 @@
-# codex_client.DataApi
+# codex_api_client.DataApi
 
 All URIs are relative to *http://localhost:8080/api/codex/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**download_local**](DataApi.md#download_local) | **GET** /data/{cid} | Download a file from the local node in a streaming manner. If the file is not available locally, a 404 is returned.
-[**download_network**](DataApi.md#download_network) | **GET** /data/{cid}/network | Download a file from the network in a streaming manner. If the file is not available locally, it will be retrieved from other nodes in the network if able.
+[**download_network**](DataApi.md#download_network) | **POST** /data/{cid}/network | Download a file from the network to the local node if it&#39;s not available locally. Note: Download is performed async. Call can return before download is completed.
+[**download_network_manifest**](DataApi.md#download_network_manifest) | **GET** /data/{cid}/network/manifest | Download only the dataset manifest from the network to the local node if it&#39;s not available locally.
+[**download_network_stream**](DataApi.md#download_network_stream) | **GET** /data/{cid}/network/stream | Download a file from the network in a streaming manner. If the file is not available locally, it will be retrieved from other nodes in the network if able.
 [**list_data**](DataApi.md#list_data) | **GET** /data | Lists manifest CIDs stored locally in node.
 [**space**](DataApi.md#space) | **GET** /space | Gets a summary of the storage space allocation of the node.
 [**upload**](DataApi.md#upload) | **POST** /data | Upload a file in a streaming manner. Once finished, the file is stored in the node and can be retrieved by any node in the network using the returned CID.
@@ -20,21 +22,21 @@ Download a file from the local node in a streaming manner. If the file is not av
 
 
 ```python
-import codex_client
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.DataApi(api_client)
+    api_instance = codex_api_client.DataApi(api_client)
     cid = 'cid_example' # str | File to be downloaded.
 
     try:
@@ -80,7 +82,145 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_network**
-> bytearray download_network(cid)
+> DataItem download_network(cid)
+
+Download a file from the network to the local node if it's not available locally. Note: Download is performed async. Call can return before download is completed.
+
+### Example
+
+
+```python
+import codex_api_client
+from codex_api_client.models.data_item import DataItem
+from codex_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = codex_api_client.Configuration(
+    host = "http://localhost:8080/api/codex/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with codex_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = codex_api_client.DataApi(api_client)
+    cid = 'cid_example' # str | File to be downloaded.
+
+    try:
+        # Download a file from the network to the local node if it's not available locally. Note: Download is performed async. Call can return before download is completed.
+        api_response = api_instance.download_network(cid)
+        print("The response of DataApi->download_network:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DataApi->download_network: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cid** | **str**| File to be downloaded. | 
+
+### Return type
+
+[**DataItem**](DataItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Manifest information for download that has been started. |  -  |
+**400** | Invalid CID is specified |  -  |
+**404** | Failed to download dataset manifest |  -  |
+**500** | Well it was bad-bad |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **download_network_manifest**
+> DataItem download_network_manifest(cid)
+
+Download only the dataset manifest from the network to the local node if it's not available locally.
+
+### Example
+
+
+```python
+import codex_api_client
+from codex_api_client.models.data_item import DataItem
+from codex_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = codex_api_client.Configuration(
+    host = "http://localhost:8080/api/codex/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with codex_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = codex_api_client.DataApi(api_client)
+    cid = 'cid_example' # str | File for which the manifest is to be downloaded.
+
+    try:
+        # Download only the dataset manifest from the network to the local node if it's not available locally.
+        api_response = api_instance.download_network_manifest(cid)
+        print("The response of DataApi->download_network_manifest:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DataApi->download_network_manifest: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cid** | **str**| File for which the manifest is to be downloaded. | 
+
+### Return type
+
+[**DataItem**](DataItem.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Manifest information. |  -  |
+**400** | Invalid CID is specified |  -  |
+**404** | Failed to download dataset manifest |  -  |
+**500** | Well it was bad-bad |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **download_network_stream**
+> bytearray download_network_stream(cid)
 
 Download a file from the network in a streaming manner. If the file is not available locally, it will be retrieved from other nodes in the network if able.
 
@@ -88,30 +228,30 @@ Download a file from the network in a streaming manner. If the file is not avail
 
 
 ```python
-import codex_client
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.DataApi(api_client)
+    api_instance = codex_api_client.DataApi(api_client)
     cid = 'cid_example' # str | File to be downloaded.
 
     try:
         # Download a file from the network in a streaming manner. If the file is not available locally, it will be retrieved from other nodes in the network if able.
-        api_response = api_instance.download_network(cid)
-        print("The response of DataApi->download_network:\n")
+        api_response = api_instance.download_network_stream(cid)
+        print("The response of DataApi->download_network_stream:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DataApi->download_network: %s\n" % e)
+        print("Exception when calling DataApi->download_network_stream: %s\n" % e)
 ```
 
 
@@ -156,22 +296,22 @@ Lists manifest CIDs stored locally in node.
 
 
 ```python
-import codex_client
-from codex_client.models.data_list import DataList
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.data_list import DataList
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.DataApi(api_client)
+    api_instance = codex_api_client.DataApi(api_client)
 
     try:
         # Lists manifest CIDs stored locally in node.
@@ -208,6 +348,7 @@ No authorization required
 **200** | Retrieved list of content CIDs |  -  |
 **400** | Invalid CID is specified |  -  |
 **404** | Content specified by the CID is not found |  -  |
+**422** | The content type is not a valid content type or the filename is not valid |  -  |
 **500** | Well it was bad-bad |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -221,22 +362,22 @@ Gets a summary of the storage space allocation of the node.
 
 
 ```python
-import codex_client
-from codex_client.models.space import Space
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.space import Space
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.DataApi(api_client)
+    api_instance = codex_api_client.DataApi(api_client)
 
     try:
         # Gets a summary of the storage space allocation of the node.
@@ -276,7 +417,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload**
-> str upload(body=body)
+> str upload(content_type=content_type, content_disposition=content_disposition, body=body)
 
 Upload a file in a streaming manner. Once finished, the file is stored in the node and can be retrieved by any node in the network using the returned CID.
 
@@ -284,26 +425,28 @@ Upload a file in a streaming manner. Once finished, the file is stored in the no
 
 
 ```python
-import codex_client
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.DataApi(api_client)
+    api_instance = codex_api_client.DataApi(api_client)
+    content_type = 'image/png' # str | The content type of the file. Must be valid. (optional)
+    content_disposition = 'attachment; filename=\"codex.png\"' # str | The content disposition used to send the filename. (optional)
     body = None # bytearray |  (optional)
 
     try:
         # Upload a file in a streaming manner. Once finished, the file is stored in the node and can be retrieved by any node in the network using the returned CID.
-        api_response = api_instance.upload(body=body)
+        api_response = api_instance.upload(content_type=content_type, content_disposition=content_disposition, body=body)
         print("The response of DataApi->upload:\n")
         pprint(api_response)
     except Exception as e:
@@ -317,6 +460,8 @@ with codex_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **content_type** | **str**| The content type of the file. Must be valid. | [optional] 
+ **content_disposition** | **str**| The content disposition used to send the filename. | [optional] 
  **body** | **bytearray**|  | [optional] 
 
 ### Return type

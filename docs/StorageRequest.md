@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from codex_client.models.storage_request import StorageRequest
+from codex_api_client.models.storage_request import StorageRequest
 
 # TODO update the JSON string below
 json = "{}"

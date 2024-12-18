@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from codex_client.models.data_list import DataList
+from codex_api_client.models.data_list import DataList
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,15 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**root_hash** | **str** | Content Identifier as specified at https://github.com/multiformats/cid | [optional] 
-**original_bytes** | **int** | Length of original content in bytes | [optional] 
+**tree_cid** | **str** | Content Identifier as specified at https://github.com/multiformats/cid | [optional] 
+**dataset_size** | **int** | Length of original content in bytes | [optional] 
 **block_size** | **int** | Size of blocks | [optional] 
 **protected** | **bool** | Indicates if content is protected by erasure-coding | [optional] 
+**filename** | **str** | The original name of the uploaded content (optional) | [optional] 
+**mimetype** | **str** | The original mimetype of the uploaded content (optional) | [optional] 
+**uploaded_at** | **int** | The UTC upload timestamp in seconds | [optional] 
 
 ## Example
 
 ```python
-from codex_client.models.manifest_item import ManifestItem
+from codex_api_client.models.manifest_item import ManifestItem
 
 # TODO update the JSON string below
 json = "{}"

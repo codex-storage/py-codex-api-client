@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from codex_client.models.reservation import Reservation
+from codex_api_client.models.reservation import Reservation
 
 # TODO update the JSON string below
 json = "{}"

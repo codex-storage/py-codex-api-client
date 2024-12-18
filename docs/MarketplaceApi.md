@@ -1,4 +1,4 @@
-# codex_client.MarketplaceApi
+# codex_api_client.MarketplaceApi
 
 All URIs are relative to *http://localhost:8080/api/codex/v1*
 
@@ -24,24 +24,24 @@ Creates a new Request for storage
 
 
 ```python
-import codex_client
-from codex_client.models.storage_request_creation import StorageRequestCreation
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.storage_request_creation import StorageRequestCreation
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.MarketplaceApi(api_client)
+    api_instance = codex_api_client.MarketplaceApi(api_client)
     cid = 'cid_example' # str | CID of the uploaded data that should be stored
-    storage_request_creation = codex_client.StorageRequestCreation() # StorageRequestCreation |  (optional)
+    storage_request_creation = codex_api_client.StorageRequestCreation() # StorageRequestCreation |  (optional)
 
     try:
         # Creates a new Request for storage
@@ -95,22 +95,22 @@ Returns active slot with id {slotId} for the host
 
 
 ```python
-import codex_client
-from codex_client.models.slot_agent import SlotAgent
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.slot_agent import SlotAgent
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.MarketplaceApi(api_client)
+    api_instance = codex_api_client.MarketplaceApi(api_client)
     slot_id = 'slot_id_example' # str | File to be downloaded.
 
     try:
@@ -164,22 +164,22 @@ Returns active slots
 
 
 ```python
-import codex_client
-from codex_client.models.slot import Slot
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.slot import Slot
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.MarketplaceApi(api_client)
+    api_instance = codex_api_client.MarketplaceApi(api_client)
 
     try:
         # Returns active slots
@@ -227,22 +227,22 @@ Returns storage that is for sale
 
 
 ```python
-import codex_client
-from codex_client.models.sales_availability_read import SalesAvailabilityREAD
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.sales_availability_read import SalesAvailabilityREAD
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.MarketplaceApi(api_client)
+    api_instance = codex_api_client.MarketplaceApi(api_client)
 
     try:
         # Returns storage that is for sale
@@ -291,22 +291,22 @@ Returns purchase details
 
 
 ```python
-import codex_client
-from codex_client.models.purchase import Purchase
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.purchase import Purchase
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.MarketplaceApi(api_client)
+    api_instance = codex_api_client.MarketplaceApi(api_client)
     id = 'id_example' # str | Hexadecimal ID of a Purchase
 
     try:
@@ -360,21 +360,21 @@ Returns list of purchase IDs
 
 
 ```python
-import codex_client
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.MarketplaceApi(api_client)
+    api_instance = codex_api_client.MarketplaceApi(api_client)
 
     try:
         # Returns list of purchase IDs
@@ -424,22 +424,22 @@ Return's list of Reservations for ongoing Storage Requests that the node hosts.
 
 
 ```python
-import codex_client
-from codex_client.models.reservation import Reservation
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.reservation import Reservation
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.MarketplaceApi(api_client)
+    api_instance = codex_api_client.MarketplaceApi(api_client)
     id = 'id_example' # str | ID of Availability
 
     try:
@@ -494,24 +494,24 @@ Offers storage for sale
 
 
 ```python
-import codex_client
-from codex_client.models.sales_availability_create import SalesAvailabilityCREATE
-from codex_client.models.sales_availability_read import SalesAvailabilityREAD
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.sales_availability_create import SalesAvailabilityCREATE
+from codex_api_client.models.sales_availability_read import SalesAvailabilityREAD
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.MarketplaceApi(api_client)
-    sales_availability_create = codex_client.SalesAvailabilityCREATE() # SalesAvailabilityCREATE |  (optional)
+    api_instance = codex_api_client.MarketplaceApi(api_client)
+    sales_availability_create = codex_api_client.SalesAvailabilityCREATE() # SalesAvailabilityCREATE |  (optional)
 
     try:
         # Offers storage for sale
@@ -567,24 +567,24 @@ The new parameters will be only considered for new requests. Existing Requests l
 
 
 ```python
-import codex_client
-from codex_client.models.sales_availability import SalesAvailability
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.sales_availability import SalesAvailability
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.MarketplaceApi(api_client)
+    api_instance = codex_api_client.MarketplaceApi(api_client)
     id = 'id_example' # str | ID of Availability
-    sales_availability = codex_client.SalesAvailability() # SalesAvailability |  (optional)
+    sales_availability = codex_api_client.SalesAvailability() # SalesAvailability |  (optional)
 
     try:
         # Updates availability

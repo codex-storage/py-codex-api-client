@@ -21,7 +21,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "Codex API Client"
-VERSION = "1.0.0"
+VERSION = "0.1.0"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
     "urllib3 >= 1.25.3, < 2.1.0",
@@ -36,7 +36,7 @@ setup(
     description="Codex API",
     author="OpenAPI Generator community",
     author_email="team@openapitools.org",
-    url="https://github.com/AuHau/py-codex-api",
+    url="https://github.com/codex-storage/py-codex-api-client",
     keywords=["OpenAPI", "OpenAPI-Generator", "Codex API"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
@@ -45,5 +45,5 @@ setup(
     long_description="""\
     List of endpoints and interfaces available to Codex API users
     """,  # noqa: E501
-    package_data={"codex_client": ["py.typed"]},
+    package_data={"codex_api_client": ["py.typed"]},
 )

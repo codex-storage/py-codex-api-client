@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from codex_client.models.peer_id_read import PeerIdRead
+from codex_api_client.models.peer_id_read import PeerIdRead
 
 # TODO update the JSON string below
 json = "{}"

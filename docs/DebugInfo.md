@@ -9,11 +9,13 @@ Name | Type | Description | Notes
 **addrs** | **List[str]** |  | [optional] 
 **repo** | **str** | Path of the data repository where all nodes data are stored | [optional] 
 **spr** | **str** | Signed Peer Record (libp2p) | [optional] 
+**table** | [**PeersTable**](PeersTable.md) |  | [optional] 
+**codex** | [**CodexVersion**](CodexVersion.md) |  | [optional] 
 
 ## Example
 
 ```python
-from codex_client.models.debug_info import DebugInfo
+from codex_api_client.models.debug_info import DebugInfo
 
 # TODO update the JSON string below
 json = "{}"

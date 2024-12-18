@@ -1,4 +1,4 @@
-# codex_client.DebugApi
+# codex_api_client.DebugApi
 
 All URIs are relative to *http://localhost:8080/api/codex/v1*
 
@@ -17,22 +17,22 @@ Gets node information
 
 
 ```python
-import codex_client
-from codex_client.models.debug_info import DebugInfo
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.models.debug_info import DebugInfo
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.DebugApi(api_client)
+    api_instance = codex_api_client.DebugApi(api_client)
 
     try:
         # Gets node information
@@ -79,21 +79,21 @@ Set log level at run time
 
 
 ```python
-import codex_client
-from codex_client.rest import ApiException
+import codex_api_client
+from codex_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
 # See configuration.py for a list of all supported configuration parameters.
-configuration = codex_client.Configuration(
+configuration = codex_api_client.Configuration(
     host = "http://localhost:8080/api/codex/v1"
 )
 
 
 # Enter a context with an instance of the API client
-with codex_client.ApiClient(configuration) as api_client:
+with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = codex_client.DebugApi(api_client)
+    api_instance = codex_api_client.DebugApi(api_client)
     level = 'level_example' # str | 
 
     try:

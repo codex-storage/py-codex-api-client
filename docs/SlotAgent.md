@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from codex_client.models.slot_agent import SlotAgent
+from codex_api_client.models.slot_agent import SlotAgent
 
 # TODO update the JSON string below
 json = "{}"

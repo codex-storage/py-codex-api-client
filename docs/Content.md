@@ -7,13 +7,11 @@ Parameters specifying the content
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cid** | **str** | Content Identifier as specified at https://github.com/multiformats/cid | [optional] 
-**erasure** | [**ErasureParameters**](ErasureParameters.md) |  | [optional] 
-**por** | [**PoRParameters**](PoRParameters.md) |  | [optional] 
 
 ## Example
 
 ```python
-from codex_client.models.content import Content
+from codex_api_client.models.content import Content
 
 # TODO update the JSON string below
 json = "{}"
