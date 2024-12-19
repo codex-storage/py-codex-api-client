@@ -1,5 +1,8 @@
 name: Release
 
+permissions:
+  contents: write
+
 on:
   release:
     types: [published]
@@ -8,12 +11,10 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
       - name: Install OpenAPI Generator
         run: npm install @openapitools/openapi-generator-cli -g
@@ -35,10 +36,8 @@ jobs:
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+      - name: Push the changes
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          branch: released
-          delete-branch: 'true'
-          title: 'Version update'
-          commit-message: 'Version update after release'
+          branch: master
+          commit_message: 'Version bump'
