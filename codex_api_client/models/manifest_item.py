@@ -32,8 +32,7 @@ class ManifestItem(BaseModel):
     protected: Optional[StrictBool] = Field(default=None, description="Indicates if content is protected by erasure-coding")
     filename: Optional[StrictStr] = Field(default=None, description="The original name of the uploaded content (optional)")
     mimetype: Optional[StrictStr] = Field(default=None, description="The original mimetype of the uploaded content (optional)")
-    uploaded_at: Optional[StrictInt] = Field(default=None, description="The UTC upload timestamp in seconds", alias="uploadedAt")
-    __properties: ClassVar[List[str]] = ["treeCid", "datasetSize", "blockSize", "protected", "filename", "mimetype", "uploadedAt"]
+    __properties: ClassVar[List[str]] = ["treeCid", "datasetSize", "blockSize", "protected", "filename", "mimetype"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,11 +83,6 @@ class ManifestItem(BaseModel):
         if self.mimetype is None and "mimetype" in self.model_fields_set:
             _dict['mimetype'] = None
 
-        # set to None if uploaded_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.uploaded_at is None and "uploaded_at" in self.model_fields_set:
-            _dict['uploadedAt'] = None
-
         return _dict
 
     @classmethod
@@ -106,8 +100,7 @@ class ManifestItem(BaseModel):
             "blockSize": obj.get("blockSize"),
             "protected": obj.get("protected"),
             "filename": obj.get("filename"),
-            "mimetype": obj.get("mimetype"),
-            "uploadedAt": obj.get("uploadedAt")
+            "mimetype": obj.get("mimetype")
         })
         return _obj
 

@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **protected** | **bool** | Indicates if content is protected by erasure-coding | [optional] 
 **filename** | **str** | The original name of the uploaded content (optional) | [optional] 
 **mimetype** | **str** | The original mimetype of the uploaded content (optional) | [optional] 
-**uploaded_at** | **int** | The UTC upload timestamp in seconds | [optional] 
 
 ## Example
 

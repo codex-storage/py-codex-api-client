@@ -6,11 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **duration** | **str** | The duration of the request in seconds as decimal string | 
-**reward** | **str** | The maximum amount of tokens paid per second per slot to hosts the client is willing to pay | 
+**price_per_byte_per_second** | **str** | The amount of tokens paid per byte per second per slot to hosts the client is willing to pay | 
 **proof_probability** | **str** | How often storage proofs are required as decimal string | 
 **nodes** | **int** | Minimal number of nodes the content should be stored on | [optional] [default to 1]
 **tolerance** | **int** | Additional number of nodes on top of the &#x60;nodes&#x60; property that can be lost before pronouncing the content lost | [optional] [default to 0]
-**collateral** | **str** | Number as decimal string that represents how much collateral is asked from hosts that wants to fill a slots | 
+**collateral_per_byte** | **str** | Number as decimal string that represents how much collateral per byte is asked from hosts that wants to fill a slots | 
 **expiry** | **str** | Number as decimal string that represents expiry threshold in seconds from when the Request is submitted. When the threshold is reached and the Request does not find requested amount of nodes to host the data, the Request is voided. The number of seconds can not be higher then the Request&#39;s duration itself. | 
 
 ## Example

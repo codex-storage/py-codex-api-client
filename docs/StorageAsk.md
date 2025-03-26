@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **slot_size** | **str** | Amount of storage per slot (in bytes) as decimal string | [optional] 
 **duration** | **str** | The duration of the request in seconds as decimal string | [optional] 
 **proof_probability** | **str** | How often storage proofs are required as decimal string | [optional] 
-**reward** | **str** | The maximum amount of tokens paid per second per slot to hosts the client is willing to pay | 
+**price_per_byte_per_second** | **str** | The amount of tokens paid per byte per second per slot to hosts the client is willing to pay | 
 **max_slot_loss** | **int** | Max slots that can be lost without data considered to be lost | [optional] 
 
 ## Example

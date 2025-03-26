@@ -30,9 +30,9 @@ class SalesAvailability(BaseModel):
     id: Optional[Annotated[str, Field(min_length=66, strict=True, max_length=66)]] = Field(default=None, description="32bits identifier encoded in hex-decimal string.")
     total_size: Optional[StrictStr] = Field(default=None, description="Total size of availability's storage in bytes as decimal string", alias="totalSize")
     duration: Optional[StrictStr] = Field(default=None, description="The duration of the request in seconds as decimal string")
-    min_price: Optional[StrictStr] = Field(default=None, description="Minimal price paid (in amount of tokens) for the whole hosted request's slot for the request's duration as decimal string", alias="minPrice")
-    max_collateral: Optional[StrictStr] = Field(default=None, description="Maximum collateral user is willing to pay per filled Slot (in amount of tokens) as decimal string", alias="maxCollateral")
-    __properties: ClassVar[List[str]] = ["id", "totalSize", "duration", "minPrice", "maxCollateral"]
+    min_price_per_byte_per_second: Optional[StrictStr] = Field(default=None, description="Minimal price per byte per second paid (in amount of tokens) for the hosted request's slot for the request's duration as decimal string", alias="minPricePerBytePerSecond")
+    total_collateral: Optional[StrictStr] = Field(default=None, description="Total collateral (in amount of tokens) that can be used for matching requests", alias="totalCollateral")
+    __properties: ClassVar[List[str]] = ["id", "totalSize", "duration", "minPricePerBytePerSecond", "totalCollateral"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -88,8 +88,8 @@ class SalesAvailability(BaseModel):
             "id": obj.get("id"),
             "totalSize": obj.get("totalSize"),
             "duration": obj.get("duration"),
-            "minPrice": obj.get("minPrice"),
-            "maxCollateral": obj.get("maxCollateral")
+            "minPricePerBytePerSecond": obj.get("minPricePerBytePerSecond"),
+            "totalCollateral": obj.get("totalCollateral")
         })
         return _obj
 
