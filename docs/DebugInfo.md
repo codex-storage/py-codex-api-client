@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **addrs** | **List[str]** |  | [optional] 
 **repo** | **str** | Path of the data repository where all nodes data are stored | [optional] 
 **spr** | **str** | Signed Peer Record (libp2p) | [optional] 
+**announce_addresses** | **List[str]** |  | [optional] 
 **table** | [**PeersTable**](PeersTable.md) |  | [optional] 
 **codex** | [**CodexVersion**](CodexVersion.md) |  | [optional] 
 

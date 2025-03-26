@@ -30,9 +30,9 @@ class StorageAsk(BaseModel):
     slot_size: Optional[StrictStr] = Field(default=None, description="Amount of storage per slot (in bytes) as decimal string", alias="slotSize")
     duration: Optional[StrictStr] = Field(default=None, description="The duration of the request in seconds as decimal string")
     proof_probability: Optional[StrictStr] = Field(default=None, description="How often storage proofs are required as decimal string", alias="proofProbability")
-    reward: StrictStr = Field(description="The maximum amount of tokens paid per second per slot to hosts the client is willing to pay")
+    price_per_byte_per_second: StrictStr = Field(description="The amount of tokens paid per byte per second per slot to hosts the client is willing to pay", alias="pricePerBytePerSecond")
     max_slot_loss: Optional[StrictInt] = Field(default=None, description="Max slots that can be lost without data considered to be lost", alias="maxSlotLoss")
-    __properties: ClassVar[List[str]] = ["slots", "slotSize", "duration", "proofProbability", "reward", "maxSlotLoss"]
+    __properties: ClassVar[List[str]] = ["slots", "slotSize", "duration", "proofProbability", "pricePerBytePerSecond", "maxSlotLoss"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,7 +89,7 @@ class StorageAsk(BaseModel):
             "slotSize": obj.get("slotSize"),
             "duration": obj.get("duration"),
             "proofProbability": obj.get("proofProbability"),
-            "reward": obj.get("reward"),
+            "pricePerBytePerSecond": obj.get("pricePerBytePerSecond"),
             "maxSlotLoss": obj.get("maxSlotLoss")
         })
         return _obj

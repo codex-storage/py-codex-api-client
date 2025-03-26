@@ -32,9 +32,10 @@ class DebugInfo(BaseModel):
     addrs: Optional[List[StrictStr]] = None
     repo: Optional[StrictStr] = Field(default=None, description="Path of the data repository where all nodes data are stored")
     spr: Optional[StrictStr] = Field(default=None, description="Signed Peer Record (libp2p)")
+    announce_addresses: Optional[List[StrictStr]] = Field(default=None, alias="announceAddresses")
     table: Optional[PeersTable] = None
     codex: Optional[CodexVersion] = None
-    __properties: ClassVar[List[str]] = ["id", "addrs", "repo", "spr", "table", "codex"]
+    __properties: ClassVar[List[str]] = ["id", "addrs", "repo", "spr", "announceAddresses", "table", "codex"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +98,7 @@ class DebugInfo(BaseModel):
             "addrs": obj.get("addrs"),
             "repo": obj.get("repo"),
             "spr": obj.get("spr"),
+            "announceAddresses": obj.get("announceAddresses"),
             "table": PeersTable.from_dict(obj["table"]) if obj.get("table") is not None else None,
             "codex": CodexVersion.from_dict(obj["codex"]) if obj.get("codex") is not None else None
         })
