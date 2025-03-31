@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from codex_api_client.models.storage_request import StorageRequest
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class Slot(BaseModel):
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="Keccak hash of the abi encoded tuple (RequestId, slot index)")
     request: Optional[StorageRequest] = None
-    slot_index: Optional[StrictStr] = Field(default=None, description="Slot Index as decimal string", alias="slotIndex")
+    slot_index: Optional[StrictInt] = Field(default=None, description="Slot Index number", alias="slotIndex")
     __properties: ClassVar[List[str]] = ["id", "request", "slotIndex"]
 
     model_config = ConfigDict(

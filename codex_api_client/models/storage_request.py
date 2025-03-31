@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from codex_api_client.models.content import Content
 from codex_api_client.models.storage_ask import StorageAsk
@@ -32,7 +32,7 @@ class StorageRequest(BaseModel):
     client: Optional[StrictStr] = Field(default=None, description="Address of Ethereum address")
     ask: Optional[StorageAsk] = None
     content: Optional[Content] = None
-    expiry: Optional[StrictStr] = Field(default='10 minutes', description="A timestamp as seconds since unix epoch at which this request expires if the Request does not find requested amount of nodes to host the data.")
+    expiry: Optional[StrictInt] = Field(default=None, description="A timestamp as seconds since unix epoch at which this request expires if the Request does not find requested amount of nodes to host the data.")
     nonce: Optional[StrictStr] = Field(default=None, description="Random data")
     __properties: ClassVar[List[str]] = ["id", "client", "ask", "content", "expiry", "nonce"]
 
@@ -97,7 +97,7 @@ class StorageRequest(BaseModel):
             "client": obj.get("client"),
             "ask": StorageAsk.from_dict(obj["ask"]) if obj.get("ask") is not None else None,
             "content": Content.from_dict(obj["content"]) if obj.get("content") is not None else None,
-            "expiry": obj.get("expiry") if obj.get("expiry") is not None else '10 minutes',
+            "expiry": obj.get("expiry"),
             "nonce": obj.get("nonce")
         })
         return _obj

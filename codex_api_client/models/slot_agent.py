@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from codex_api_client.models.reservation import Reservation
@@ -30,7 +30,7 @@ class SlotAgent(BaseModel):
     SlotAgent
     """ # noqa: E501
     id: Optional[StrictStr] = Field(default=None, description="Keccak hash of the abi encoded tuple (RequestId, slot index)")
-    slot_index: Optional[StrictStr] = Field(default=None, description="Slot Index as decimal string", alias="slotIndex")
+    slot_index: Optional[StrictInt] = Field(default=None, description="Slot Index number", alias="slotIndex")
     request_id: Optional[Annotated[str, Field(min_length=66, strict=True, max_length=66)]] = Field(default=None, description="32bits identifier encoded in hex-decimal string.", alias="requestId")
     request: Optional[StorageRequest] = None
     reservation: Optional[Reservation] = None

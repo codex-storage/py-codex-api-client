@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | 32bits identifier encoded in hex-decimal string. | [optional] 
-**total_size** | **str** | Total size of availability&#39;s storage in bytes as decimal string | [optional] 
-**duration** | **str** | The duration of the request in seconds as decimal string | [optional] 
+**total_size** | **int** | Total size of availability&#39;s storage in bytes | [optional] 
+**duration** | **int** | The duration of the request in seconds | [optional] 
 **min_price_per_byte_per_second** | **str** | Minimal price per byte per second paid (in amount of tokens) for the hosted request&#39;s slot for the request&#39;s duration as decimal string | [optional] 
 **total_collateral** | **str** | Total collateral (in amount of tokens) that can be used for matching requests | [optional] 
 
