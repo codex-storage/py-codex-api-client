@@ -26,13 +26,13 @@ class StorageRequestCreation(BaseModel):
     """
     StorageRequestCreation
     """ # noqa: E501
-    duration: StrictStr = Field(description="The duration of the request in seconds as decimal string")
+    duration: StrictInt = Field(description="The duration of the request in seconds")
     price_per_byte_per_second: StrictStr = Field(description="The amount of tokens paid per byte per second per slot to hosts the client is willing to pay", alias="pricePerBytePerSecond")
     proof_probability: StrictStr = Field(description="How often storage proofs are required as decimal string", alias="proofProbability")
-    nodes: Optional[StrictInt] = Field(default=1, description="Minimal number of nodes the content should be stored on")
-    tolerance: Optional[StrictInt] = Field(default=0, description="Additional number of nodes on top of the `nodes` property that can be lost before pronouncing the content lost")
+    nodes: Optional[StrictInt] = Field(default=3, description="Minimal number of nodes the content should be stored on")
+    tolerance: Optional[StrictInt] = Field(default=1, description="Additional number of nodes on top of the `nodes` property that can be lost before pronouncing the content lost")
     collateral_per_byte: StrictStr = Field(description="Number as decimal string that represents how much collateral per byte is asked from hosts that wants to fill a slots", alias="collateralPerByte")
-    expiry: StrictStr = Field(description="Number as decimal string that represents expiry threshold in seconds from when the Request is submitted. When the threshold is reached and the Request does not find requested amount of nodes to host the data, the Request is voided. The number of seconds can not be higher then the Request's duration itself.")
+    expiry: StrictInt = Field(description="Number that represents expiry threshold in seconds from when the Request is submitted. When the threshold is reached and the Request does not find requested amount of nodes to host the data, the Request is voided. The number of seconds can not be higher then the Request's duration itself.")
     __properties: ClassVar[List[str]] = ["duration", "pricePerBytePerSecond", "proofProbability", "nodes", "tolerance", "collateralPerByte", "expiry"]
 
     model_config = ConfigDict(
@@ -89,8 +89,8 @@ class StorageRequestCreation(BaseModel):
             "duration": obj.get("duration"),
             "pricePerBytePerSecond": obj.get("pricePerBytePerSecond"),
             "proofProbability": obj.get("proofProbability"),
-            "nodes": obj.get("nodes") if obj.get("nodes") is not None else 1,
-            "tolerance": obj.get("tolerance") if obj.get("tolerance") is not None else 0,
+            "nodes": obj.get("nodes") if obj.get("nodes") is not None else 3,
+            "tolerance": obj.get("tolerance") if obj.get("tolerance") is not None else 1,
             "collateralPerByte": obj.get("collateralPerByte"),
             "expiry": obj.get("expiry")
         })

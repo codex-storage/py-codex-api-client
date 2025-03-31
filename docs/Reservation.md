@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | 32bits identifier encoded in hex-decimal string. | [optional] 
 **availability_id** | **str** | 32bits identifier encoded in hex-decimal string. | [optional] 
-**size** | **str** | Integer represented as decimal string | [optional] 
+**size** | **int** | Size of the slot in bytes | [optional] 
 **request_id** | **str** | 32bits identifier encoded in hex-decimal string. | [optional] 
-**slot_index** | **str** | Slot Index as decimal string | [optional] 
+**slot_index** | **int** | Slot Index number | [optional] 
 
 ## Example
 

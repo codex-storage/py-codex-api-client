@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **client** | **str** | Address of Ethereum address | [optional] 
 **ask** | [**StorageAsk**](StorageAsk.md) |  | [optional] 
 **content** | [**Content**](Content.md) |  | [optional] 
-**expiry** | **str** | A timestamp as seconds since unix epoch at which this request expires if the Request does not find requested amount of nodes to host the data. | [optional] [default to '10 minutes']
+**expiry** | **int** | A timestamp as seconds since unix epoch at which this request expires if the Request does not find requested amount of nodes to host the data. | [optional] 
 **nonce** | **str** | Random data | [optional] 
 
 ## Example

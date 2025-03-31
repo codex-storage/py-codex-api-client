@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -28,11 +28,11 @@ class SalesAvailabilityREAD(BaseModel):
     SalesAvailabilityREAD
     """ # noqa: E501
     id: Optional[Annotated[str, Field(min_length=66, strict=True, max_length=66)]] = Field(default=None, description="32bits identifier encoded in hex-decimal string.")
-    total_size: Optional[StrictStr] = Field(default=None, description="Total size of availability's storage in bytes as decimal string", alias="totalSize")
-    duration: Optional[StrictStr] = Field(default=None, description="The duration of the request in seconds as decimal string")
+    total_size: Optional[StrictInt] = Field(default=None, description="Total size of availability's storage in bytes", alias="totalSize")
+    duration: Optional[StrictInt] = Field(default=None, description="The duration of the request in seconds")
     min_price_per_byte_per_second: Optional[StrictStr] = Field(default=None, description="Minimal price per byte per second paid (in amount of tokens) for the hosted request's slot for the request's duration as decimal string", alias="minPricePerBytePerSecond")
     total_collateral: Optional[StrictStr] = Field(default=None, description="Total collateral (in amount of tokens) that can be used for matching requests", alias="totalCollateral")
-    free_size: Optional[StrictStr] = Field(default=None, description="Unused size of availability's storage in bytes as decimal string", alias="freeSize")
+    free_size: Optional[StrictInt] = Field(default=None, description="Unused size of availability's storage in bytes", alias="freeSize")
     __properties: ClassVar[List[str]] = ["id", "totalSize", "duration", "minPricePerBytePerSecond", "totalCollateral", "freeSize"]
 
     model_config = ConfigDict(
