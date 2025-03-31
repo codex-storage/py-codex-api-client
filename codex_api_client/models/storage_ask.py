@@ -27,7 +27,7 @@ class StorageAsk(BaseModel):
     StorageAsk
     """ # noqa: E501
     slots: Optional[StrictInt] = Field(default=None, description="Number of slots (eq. hosts) that the Request want to have the content spread over")
-    slot_size: Optional[StrictStr] = Field(default=None, description="Amount of storage per slot (in bytes) as decimal string", alias="slotSize")
+    slot_size: Optional[StrictInt] = Field(default=None, description="Amount of storage per slot (in bytes) as decimal string", alias="slotSize")
     duration: Optional[StrictInt] = Field(default=None, description="The duration of the request in seconds")
     proof_probability: Optional[StrictStr] = Field(default=None, description="How often storage proofs are required as decimal string", alias="proofProbability")
     price_per_byte_per_second: StrictStr = Field(description="The amount of tokens paid per byte per second per slot to hosts the client is willing to pay", alias="pricePerBytePerSecond")

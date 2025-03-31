@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **slots** | **int** | Number of slots (eq. hosts) that the Request want to have the content spread over | [optional] 
-**slot_size** | **str** | Amount of storage per slot (in bytes) as decimal string | [optional] 
+**slot_size** | **int** | Amount of storage per slot (in bytes) as decimal string | [optional] 
 **duration** | **int** | The duration of the request in seconds | [optional] 
 **proof_probability** | **str** | How often storage proofs are required as decimal string | [optional] 
 **price_per_byte_per_second** | **str** | The amount of tokens paid per byte per second per slot to hosts the client is willing to pay | 
