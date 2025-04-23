@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Request ID | [optional] 
-**client** | **str** | Address of Ethereum address | [optional] 
-**ask** | [**StorageAsk**](StorageAsk.md) |  | [optional] 
-**content** | [**Content**](Content.md) |  | [optional] 
-**expiry** | **int** | A timestamp as seconds since unix epoch at which this request expires if the Request does not find requested amount of nodes to host the data. | [optional] 
-**nonce** | **str** | Random data | [optional] 
+**id** | **str** | Request ID | 
+**client** | **str** | Address of Ethereum address | 
+**ask** | [**StorageAsk**](StorageAsk.md) |  | 
+**content** | [**Content**](Content.md) |  | 
+**expiry** | **int** | A timestamp as seconds since unix epoch at which this request expires if the Request does not find requested amount of nodes to host the data. | 
+**nonce** | **str** | Random data | 
 
 ## Example
 

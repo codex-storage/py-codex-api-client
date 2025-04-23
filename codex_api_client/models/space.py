@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,10 +26,10 @@ class Space(BaseModel):
     """
     Space
     """ # noqa: E501
-    total_blocks: Optional[StrictInt] = Field(default=None, description="Number of blocks stored by the node", alias="totalBlocks")
-    quota_max_bytes: Optional[StrictInt] = Field(default=None, description="Maximum storage space (in bytes) available for the node in Codex's local repository.", alias="quotaMaxBytes")
-    quota_used_bytes: Optional[StrictInt] = Field(default=None, description="Amount of storage space (in bytes) currently used for storing files in Codex's local repository.", alias="quotaUsedBytes")
-    quota_reserved_bytes: Optional[StrictInt] = Field(default=None, description="Amount of storage reserved (in bytes) in the Codex's local repository for future use when storage requests will be picked up and hosted by the node using node's availabilities. This does not include the storage currently in use.", alias="quotaReservedBytes")
+    total_blocks: StrictInt = Field(description="Number of blocks stored by the node", alias="totalBlocks")
+    quota_max_bytes: StrictInt = Field(description="Maximum storage space (in bytes) available for the node in Codex's local repository.", alias="quotaMaxBytes")
+    quota_used_bytes: StrictInt = Field(description="Amount of storage space (in bytes) currently used for storing files in Codex's local repository.", alias="quotaUsedBytes")
+    quota_reserved_bytes: StrictInt = Field(description="Amount of storage reserved (in bytes) in the Codex's local repository for future use when storage requests will be picked up and hosted by the node using node's availabilities. This does not include the storage currently in use.", alias="quotaReservedBytes")
     __properties: ClassVar[List[str]] = ["totalBlocks", "quotaMaxBytes", "quotaUsedBytes", "quotaReservedBytes"]
 
     model_config = ConfigDict(

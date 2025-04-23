@@ -47,7 +47,6 @@ from codex_api_client.models.purchase import Purchase
 from codex_api_client.models.reservation import Reservation
 from codex_api_client.models.spr_read import SPRRead
 from codex_api_client.models.sales_availability import SalesAvailability
-from codex_api_client.models.sales_availability_create import SalesAvailabilityCREATE
 from codex_api_client.models.sales_availability_read import SalesAvailabilityREAD
 from codex_api_client.models.slot import Slot
 from codex_api_client.models.slot_agent import SlotAgent

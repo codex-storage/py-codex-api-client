@@ -22,7 +22,6 @@ from typing_extensions import Annotated
 from codex_api_client.models.purchase import Purchase
 from codex_api_client.models.reservation import Reservation
 from codex_api_client.models.sales_availability import SalesAvailability
-from codex_api_client.models.sales_availability_create import SalesAvailabilityCREATE
 from codex_api_client.models.sales_availability_read import SalesAvailabilityREAD
 from codex_api_client.models.slot import Slot
 from codex_api_client.models.slot_agent import SlotAgent
@@ -105,6 +104,7 @@ class MarketplaceApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
             '400': None,
+            '422': None,
             '404': None,
             '503': None,
         }
@@ -178,6 +178,7 @@ class MarketplaceApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
             '400': None,
+            '422': None,
             '404': None,
             '503': None,
         }
@@ -251,6 +252,7 @@ class MarketplaceApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
             '400': None,
+            '422': None,
             '404': None,
             '503': None,
         }
@@ -1885,7 +1887,7 @@ class MarketplaceApi:
     @validate_call
     def offer_storage(
         self,
-        sales_availability_create: Optional[SalesAvailabilityCREATE] = None,
+        sales_availability: Optional[SalesAvailability] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1902,8 +1904,8 @@ class MarketplaceApi:
         """Offers storage for sale
 
 
-        :param sales_availability_create:
-        :type sales_availability_create: SalesAvailabilityCREATE
+        :param sales_availability:
+        :type sales_availability: SalesAvailability
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1927,7 +1929,7 @@ class MarketplaceApi:
         """ # noqa: E501
 
         _param = self._offer_storage_serialize(
-            sales_availability_create=sales_availability_create,
+            sales_availability=sales_availability,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1955,7 +1957,7 @@ class MarketplaceApi:
     @validate_call
     def offer_storage_with_http_info(
         self,
-        sales_availability_create: Optional[SalesAvailabilityCREATE] = None,
+        sales_availability: Optional[SalesAvailability] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1972,8 +1974,8 @@ class MarketplaceApi:
         """Offers storage for sale
 
 
-        :param sales_availability_create:
-        :type sales_availability_create: SalesAvailabilityCREATE
+        :param sales_availability:
+        :type sales_availability: SalesAvailability
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1997,7 +1999,7 @@ class MarketplaceApi:
         """ # noqa: E501
 
         _param = self._offer_storage_serialize(
-            sales_availability_create=sales_availability_create,
+            sales_availability=sales_availability,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2025,7 +2027,7 @@ class MarketplaceApi:
     @validate_call
     def offer_storage_without_preload_content(
         self,
-        sales_availability_create: Optional[SalesAvailabilityCREATE] = None,
+        sales_availability: Optional[SalesAvailability] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2042,8 +2044,8 @@ class MarketplaceApi:
         """Offers storage for sale
 
 
-        :param sales_availability_create:
-        :type sales_availability_create: SalesAvailabilityCREATE
+        :param sales_availability:
+        :type sales_availability: SalesAvailability
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2067,7 +2069,7 @@ class MarketplaceApi:
         """ # noqa: E501
 
         _param = self._offer_storage_serialize(
-            sales_availability_create=sales_availability_create,
+            sales_availability=sales_availability,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2090,7 +2092,7 @@ class MarketplaceApi:
 
     def _offer_storage_serialize(
         self,
-        sales_availability_create,
+        sales_availability,
         _request_auth,
         _content_type,
         _headers,
@@ -2116,8 +2118,8 @@ class MarketplaceApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if sales_availability_create is not None:
-            _body_params = sales_availability_create
+        if sales_availability is not None:
+            _body_params = sales_availability
 
 
         # set the HTTP header `Accept`

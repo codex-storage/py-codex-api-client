@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total_blocks** | **int** | Number of blocks stored by the node | [optional] 
-**quota_max_bytes** | **int** | Maximum storage space (in bytes) available for the node in Codex&#39;s local repository. | [optional] 
-**quota_used_bytes** | **int** | Amount of storage space (in bytes) currently used for storing files in Codex&#39;s local repository. | [optional] 
-**quota_reserved_bytes** | **int** | Amount of storage reserved (in bytes) in the Codex&#39;s local repository for future use when storage requests will be picked up and hosted by the node using node&#39;s availabilities. This does not include the storage currently in use. | [optional] 
+**total_blocks** | **int** | Number of blocks stored by the node | 
+**quota_max_bytes** | **int** | Maximum storage space (in bytes) available for the node in Codex&#39;s local repository. | 
+**quota_used_bytes** | **int** | Amount of storage space (in bytes) currently used for storing files in Codex&#39;s local repository. | 
+**quota_reserved_bytes** | **int** | Amount of storage reserved (in bytes) in the Codex&#39;s local repository for future use when storage requests will be picked up and hosted by the node using node&#39;s availabilities. This does not include the storage currently in use. | 
 
 ## Example
 

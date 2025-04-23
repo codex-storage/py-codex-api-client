@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from codex_api_client.models.content import Content
 from codex_api_client.models.storage_ask import StorageAsk
 from typing import Optional, Set
@@ -28,12 +28,12 @@ class StorageRequest(BaseModel):
     """
     StorageRequest
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Request ID")
-    client: Optional[StrictStr] = Field(default=None, description="Address of Ethereum address")
-    ask: Optional[StorageAsk] = None
-    content: Optional[Content] = None
-    expiry: Optional[StrictInt] = Field(default=None, description="A timestamp as seconds since unix epoch at which this request expires if the Request does not find requested amount of nodes to host the data.")
-    nonce: Optional[StrictStr] = Field(default=None, description="Random data")
+    id: StrictStr = Field(description="Request ID")
+    client: StrictStr = Field(description="Address of Ethereum address")
+    ask: StorageAsk
+    content: Content
+    expiry: StrictInt = Field(description="A timestamp as seconds since unix epoch at which this request expires if the Request does not find requested amount of nodes to host the data.")
+    nonce: StrictStr = Field(description="Random data")
     __properties: ClassVar[List[str]] = ["id", "client", "ask", "content", "expiry", "nonce"]
 
     model_config = ConfigDict(

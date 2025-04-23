@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,12 +27,13 @@ class Reservation(BaseModel):
     """
     Reservation
     """ # noqa: E501
-    id: Optional[Annotated[str, Field(min_length=66, strict=True, max_length=66)]] = Field(default=None, description="32bits identifier encoded in hex-decimal string.")
-    availability_id: Optional[Annotated[str, Field(min_length=66, strict=True, max_length=66)]] = Field(default=None, description="32bits identifier encoded in hex-decimal string.", alias="availabilityId")
-    size: Optional[StrictInt] = Field(default=None, description="Size of the slot in bytes")
-    request_id: Optional[Annotated[str, Field(min_length=66, strict=True, max_length=66)]] = Field(default=None, description="32bits identifier encoded in hex-decimal string.", alias="requestId")
-    slot_index: Optional[StrictInt] = Field(default=None, description="Slot Index number", alias="slotIndex")
-    __properties: ClassVar[List[str]] = ["id", "availabilityId", "size", "requestId", "slotIndex"]
+    id: Annotated[str, Field(min_length=66, strict=True, max_length=66)] = Field(description="32bits identifier encoded in hex-decimal string.")
+    availability_id: Annotated[str, Field(min_length=66, strict=True, max_length=66)] = Field(description="32bits identifier encoded in hex-decimal string.", alias="availabilityId")
+    size: StrictInt = Field(description="Size of the slot in bytes")
+    request_id: Annotated[str, Field(min_length=66, strict=True, max_length=66)] = Field(description="32bits identifier encoded in hex-decimal string.", alias="requestId")
+    slot_index: StrictInt = Field(description="Slot Index number", alias="slotIndex")
+    valid_until: StrictInt = Field(description="Timestamp after which the reservation will no longer be valid.", alias="validUntil")
+    __properties: ClassVar[List[str]] = ["id", "availabilityId", "size", "requestId", "slotIndex", "validUntil"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,7 +90,8 @@ class Reservation(BaseModel):
             "availabilityId": obj.get("availabilityId"),
             "size": obj.get("size"),
             "requestId": obj.get("requestId"),
-            "slotIndex": obj.get("slotIndex")
+            "slotIndex": obj.get("slotIndex"),
+            "validUntil": obj.get("validUntil")
         })
         return _obj
 

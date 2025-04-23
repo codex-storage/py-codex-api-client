@@ -28,7 +28,8 @@ class CodexVersion(BaseModel):
     """ # noqa: E501
     version: Optional[StrictStr] = None
     revision: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["version", "revision"]
+    contracts: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["version", "revision", "contracts"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,7 +83,8 @@ class CodexVersion(BaseModel):
 
         _obj = cls.model_validate({
             "version": obj.get("version"),
-            "revision": obj.get("revision")
+            "revision": obj.get("revision"),
+            "contracts": obj.get("contracts")
         })
         return _obj
 

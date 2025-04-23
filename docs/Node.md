@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**node_id** | **str** |  | [optional] 
-**peer_id** | **str** |  | [optional] 
-**record** | **str** |  | [optional] 
-**address** | **str** |  | [optional] 
-**seen** | **bool** |  | [optional] 
+**node_id** | **str** |  | 
+**peer_id** | **str** |  | 
+**record** | **str** |  | 
+**address** | **str** |  | 
+**seen** | **bool** |  | 
 
 ## Example
 

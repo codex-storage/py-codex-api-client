@@ -482,6 +482,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | CID of uploaded file |  -  |
+**422** | The mimetype of the filename is invalid |  -  |
 **500** | Well it was bad-bad and the upload did not work out |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

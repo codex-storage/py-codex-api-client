@@ -29,20 +29,16 @@ class SlotAgent(BaseModel):
     """
     SlotAgent
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Keccak hash of the abi encoded tuple (RequestId, slot index)")
-    slot_index: Optional[StrictInt] = Field(default=None, description="Slot Index number", alias="slotIndex")
-    request_id: Optional[Annotated[str, Field(min_length=66, strict=True, max_length=66)]] = Field(default=None, description="32bits identifier encoded in hex-decimal string.", alias="requestId")
+    slot_index: StrictInt = Field(description="Slot Index number", alias="slotIndex")
+    request_id: Annotated[str, Field(min_length=66, strict=True, max_length=66)] = Field(description="32bits identifier encoded in hex-decimal string.", alias="requestId")
     request: Optional[StorageRequest] = None
     reservation: Optional[Reservation] = None
-    state: Optional[StrictStr] = Field(default=None, description="Description of the slot's")
-    __properties: ClassVar[List[str]] = ["id", "slotIndex", "requestId", "request", "reservation", "state"]
+    state: StrictStr = Field(description="Description of the slot's")
+    __properties: ClassVar[List[str]] = ["slotIndex", "requestId", "request", "reservation", "state"]
 
     @field_validator('state')
     def state_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['SaleCancelled', 'SaleDownloading', 'SaleErrored', 'SaleFailed', 'SaleFilled', 'SaleFilling', 'SaleFinished', 'SaleIgnored', 'SaleInitialProving', 'SalePayout', 'SalePreparing', 'SaleProving', 'SaleUnknown']):
             raise ValueError("must be one of enum values ('SaleCancelled', 'SaleDownloading', 'SaleErrored', 'SaleFailed', 'SaleFilled', 'SaleFilling', 'SaleFinished', 'SaleIgnored', 'SaleInitialProving', 'SalePayout', 'SalePreparing', 'SaleProving', 'SaleUnknown')")
         return value
@@ -104,7 +100,6 @@ class SlotAgent(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
             "slotIndex": obj.get("slotIndex"),
             "requestId": obj.get("requestId"),
             "request": StorageRequest.from_dict(obj["request"]) if obj.get("request") is not None else None,

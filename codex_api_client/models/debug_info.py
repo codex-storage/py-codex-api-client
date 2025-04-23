@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from codex_api_client.models.codex_version import CodexVersion
 from codex_api_client.models.peers_table import PeersTable
 from typing import Optional, Set
@@ -28,13 +28,13 @@ class DebugInfo(BaseModel):
     """
     DebugInfo
     """ # noqa: E501
-    id: Optional[StrictStr] = Field(default=None, description="Peer Identity reference as specified at https://docs.libp2p.io/concepts/fundamentals/peers/")
-    addrs: Optional[List[StrictStr]] = None
-    repo: Optional[StrictStr] = Field(default=None, description="Path of the data repository where all nodes data are stored")
-    spr: Optional[StrictStr] = Field(default=None, description="Signed Peer Record (libp2p)")
-    announce_addresses: Optional[List[StrictStr]] = Field(default=None, alias="announceAddresses")
-    table: Optional[PeersTable] = None
-    codex: Optional[CodexVersion] = None
+    id: StrictStr = Field(description="Peer Identity reference as specified at https://docs.libp2p.io/concepts/fundamentals/peers/")
+    addrs: List[StrictStr]
+    repo: StrictStr = Field(description="Path of the data repository where all nodes data are stored")
+    spr: StrictStr = Field(description="Signed Peer Record (libp2p)")
+    announce_addresses: List[StrictStr] = Field(alias="announceAddresses")
+    table: PeersTable
+    codex: CodexVersion
     __properties: ClassVar[List[str]] = ["id", "addrs", "repo", "spr", "announceAddresses", "table", "codex"]
 
     model_config = ConfigDict(

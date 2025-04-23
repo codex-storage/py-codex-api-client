@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from codex_api_client.models.manifest_item import ManifestItem
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class DataItem(BaseModel):
     """
     DataItem
     """ # noqa: E501
-    cid: Optional[StrictStr] = Field(default=None, description="Content Identifier as specified at https://github.com/multiformats/cid")
-    manifest: Optional[ManifestItem] = None
+    cid: StrictStr = Field(description="Content Identifier as specified at https://github.com/multiformats/cid")
+    manifest: ManifestItem
     __properties: ClassVar[List[str]] = ["cid", "manifest"]
 
     model_config = ConfigDict(

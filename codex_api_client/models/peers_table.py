@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from codex_api_client.models.node import Node
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class PeersTable(BaseModel):
     """
     PeersTable
     """ # noqa: E501
-    local_node: Optional[Node] = Field(default=None, alias="localNode")
-    nodes: Optional[List[Node]] = None
+    local_node: Node = Field(alias="localNode")
+    nodes: List[Node]
     __properties: ClassVar[List[str]] = ["localNode", "nodes"]
 
     model_config = ConfigDict(

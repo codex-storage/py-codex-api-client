@@ -5,11 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | 32bits identifier encoded in hex-decimal string. | [optional] 
-**availability_id** | **str** | 32bits identifier encoded in hex-decimal string. | [optional] 
-**size** | **int** | Size of the slot in bytes | [optional] 
-**request_id** | **str** | 32bits identifier encoded in hex-decimal string. | [optional] 
-**slot_index** | **int** | Slot Index number | [optional] 
+**id** | **str** | 32bits identifier encoded in hex-decimal string. | 
+**availability_id** | **str** | 32bits identifier encoded in hex-decimal string. | 
+**size** | **int** | Size of the slot in bytes | 
+**request_id** | **str** | 32bits identifier encoded in hex-decimal string. | 
+**slot_index** | **int** | Slot Index number | 
+**valid_until** | **int** | Timestamp after which the reservation will no longer be valid. | 
 
 ## Example
 

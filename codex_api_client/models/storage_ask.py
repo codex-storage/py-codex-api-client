@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,13 +26,14 @@ class StorageAsk(BaseModel):
     """
     StorageAsk
     """ # noqa: E501
-    slots: Optional[StrictInt] = Field(default=None, description="Number of slots (eq. hosts) that the Request want to have the content spread over")
-    slot_size: Optional[StrictInt] = Field(default=None, description="Amount of storage per slot (in bytes) as decimal string", alias="slotSize")
-    duration: Optional[StrictInt] = Field(default=None, description="The duration of the request in seconds")
-    proof_probability: Optional[StrictStr] = Field(default=None, description="How often storage proofs are required as decimal string", alias="proofProbability")
+    slots: StrictInt = Field(description="Number of slots (eq. hosts) that the Request want to have the content spread over")
+    slot_size: StrictInt = Field(description="Amount of storage per slot in bytes", alias="slotSize")
+    duration: StrictInt = Field(description="The duration of the request in seconds")
+    proof_probability: StrictStr = Field(description="How often storage proofs are required as decimal string", alias="proofProbability")
     price_per_byte_per_second: StrictStr = Field(description="The amount of tokens paid per byte per second per slot to hosts the client is willing to pay", alias="pricePerBytePerSecond")
-    max_slot_loss: Optional[StrictInt] = Field(default=None, description="Max slots that can be lost without data considered to be lost", alias="maxSlotLoss")
-    __properties: ClassVar[List[str]] = ["slots", "slotSize", "duration", "proofProbability", "pricePerBytePerSecond", "maxSlotLoss"]
+    collateral_per_byte: StrictStr = Field(description="Number as decimal string that represents how much collateral per byte is asked from hosts that wants to fill a slots", alias="collateralPerByte")
+    max_slot_loss: StrictInt = Field(description="Max slots that can be lost without data considered to be lost", alias="maxSlotLoss")
+    __properties: ClassVar[List[str]] = ["slots", "slotSize", "duration", "proofProbability", "pricePerBytePerSecond", "collateralPerByte", "maxSlotLoss"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,6 +91,7 @@ class StorageAsk(BaseModel):
             "duration": obj.get("duration"),
             "proofProbability": obj.get("proofProbability"),
             "pricePerBytePerSecond": obj.get("pricePerBytePerSecond"),
+            "collateralPerByte": obj.get("collateralPerByte"),
             "maxSlotLoss": obj.get("maxSlotLoss")
         })
         return _obj
