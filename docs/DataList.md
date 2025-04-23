@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**content** | [**List[DataItem]**](DataItem.md) |  | [optional] 
+**content** | [**List[DataItem]**](DataItem.md) |  | 
 
 ## Example
 

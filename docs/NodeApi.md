@@ -128,7 +128,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: plain/text, application/json
+ - **Accept**: text/plain, application/json
 
 ### HTTP response details
 
@@ -189,7 +189,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: plain/text, application/json
+ - **Accept**: text/plain, application/json
 
 ### HTTP response details
 

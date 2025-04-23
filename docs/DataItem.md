@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cid** | **str** | Content Identifier as specified at https://github.com/multiformats/cid | [optional] 
-**manifest** | [**ManifestItem**](ManifestItem.md) |  | [optional] 
+**cid** | **str** | Content Identifier as specified at https://github.com/multiformats/cid | 
+**manifest** | [**ManifestItem**](ManifestItem.md) |  | 
 
 ## Example
 

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,11 +26,11 @@ class Node(BaseModel):
     """
     Node
     """ # noqa: E501
-    node_id: Optional[StrictStr] = Field(default=None, alias="nodeId")
-    peer_id: Optional[StrictStr] = Field(default=None, alias="peerId")
-    record: Optional[StrictStr] = None
-    address: Optional[StrictStr] = None
-    seen: Optional[StrictBool] = None
+    node_id: StrictStr = Field(alias="nodeId")
+    peer_id: StrictStr = Field(alias="peerId")
+    record: StrictStr
+    address: StrictStr
+    seen: StrictBool
     __properties: ClassVar[List[str]] = ["nodeId", "peerId", "record", "address", "seen"]
 
     model_config = ConfigDict(

@@ -527,7 +527,7 @@ class NodeApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'plain/text', 
+                    'text/plain', 
                     'application/json'
                 ]
             )
@@ -773,7 +773,7 @@ class NodeApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'plain/text', 
+                    'text/plain', 
                     'application/json'
                 ]
             )

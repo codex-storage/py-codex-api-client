@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Peer Identity reference as specified at https://docs.libp2p.io/concepts/fundamentals/peers/ | [optional] 
-**addrs** | **List[str]** |  | [optional] 
-**repo** | **str** | Path of the data repository where all nodes data are stored | [optional] 
-**spr** | **str** | Signed Peer Record (libp2p) | [optional] 
-**announce_addresses** | **List[str]** |  | [optional] 
-**table** | [**PeersTable**](PeersTable.md) |  | [optional] 
-**codex** | [**CodexVersion**](CodexVersion.md) |  | [optional] 
+**id** | **str** | Peer Identity reference as specified at https://docs.libp2p.io/concepts/fundamentals/peers/ | 
+**addrs** | **List[str]** |  | 
+**repo** | **str** | Path of the data repository where all nodes data are stored | 
+**spr** | **str** | Signed Peer Record (libp2p) | 
+**announce_addresses** | **List[str]** |  | 
+**table** | [**PeersTable**](PeersTable.md) |  | 
+**codex** | [**CodexVersion**](CodexVersion.md) |  | 
 
 ## Example
 

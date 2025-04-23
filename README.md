@@ -101,7 +101,6 @@ Class | Method | HTTP request | Description
  - [Reservation](docs/Reservation.md)
  - [SPRRead](docs/SPRRead.md)
  - [SalesAvailability](docs/SalesAvailability.md)
- - [SalesAvailabilityCREATE](docs/SalesAvailabilityCREATE.md)
  - [SalesAvailabilityREAD](docs/SalesAvailabilityREAD.md)
  - [Slot](docs/Slot.md)
  - [SlotAgent](docs/SlotAgent.md)

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from codex_api_client.models.data_item import DataItem
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class DataList(BaseModel):
     """
     DataList
     """ # noqa: E501
-    content: Optional[List[DataItem]] = None
+    content: List[DataItem]
     __properties: ClassVar[List[str]] = ["content"]
 
     model_config = ConfigDict(

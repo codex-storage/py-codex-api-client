@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Keccak hash of the abi encoded tuple (RequestId, slot index) | [optional] 
-**request** | [**StorageRequest**](StorageRequest.md) |  | [optional] 
-**slot_index** | **int** | Slot Index number | [optional] 
+**id** | **str** | Keccak hash of the abi encoded tuple (RequestId, slot index) | 
+**request** | [**StorageRequest**](StorageRequest.md) |  | 
+**slot_index** | **int** | Slot Index number | 
 
 ## Example
 

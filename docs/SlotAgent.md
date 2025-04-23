@@ -5,12 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | Keccak hash of the abi encoded tuple (RequestId, slot index) | [optional] 
-**slot_index** | **int** | Slot Index number | [optional] 
-**request_id** | **str** | 32bits identifier encoded in hex-decimal string. | [optional] 
+**slot_index** | **int** | Slot Index number | 
+**request_id** | **str** | 32bits identifier encoded in hex-decimal string. | 
 **request** | [**StorageRequest**](StorageRequest.md) |  | [optional] 
 **reservation** | [**Reservation**](Reservation.md) |  | [optional] 
-**state** | **str** | Description of the slot&#39;s | [optional] 
+**state** | **str** | Description of the slot&#39;s | 
 
 ## Example
 

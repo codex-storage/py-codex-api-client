@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,7 +26,7 @@ class Content(BaseModel):
     """
     Parameters specifying the content
     """ # noqa: E501
-    cid: Optional[StrictStr] = Field(default=None, description="Content Identifier as specified at https://github.com/multiformats/cid")
+    cid: StrictStr = Field(description="Content Identifier as specified at https://github.com/multiformats/cid")
     __properties: ClassVar[List[str]] = ["cid"]
 
     model_config = ConfigDict(

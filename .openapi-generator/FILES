@@ -23,7 +23,6 @@ codex_api_client/models/peers_table.py
 codex_api_client/models/purchase.py
 codex_api_client/models/reservation.py
 codex_api_client/models/sales_availability.py
-codex_api_client/models/sales_availability_create.py
 codex_api_client/models/sales_availability_read.py
 codex_api_client/models/slot.py
 codex_api_client/models/slot_agent.py
@@ -51,7 +50,6 @@ docs/Purchase.md
 docs/Reservation.md
 docs/SPRRead.md
 docs/SalesAvailability.md
-docs/SalesAvailabilityCREATE.md
 docs/SalesAvailabilityREAD.md
 docs/Slot.md
 docs/SlotAgent.md

@@ -1666,6 +1666,7 @@ class DataApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
+            '422': None,
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -1741,6 +1742,7 @@ class DataApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
+            '422': None,
             '500': None,
         }
         response_data = self.api_client.call_api(
@@ -1816,6 +1818,7 @@ class DataApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "str",
+            '422': None,
             '500': None,
         }
         response_data = self.api_client.call_api(

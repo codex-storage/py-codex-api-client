@@ -81,6 +81,7 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Returns the Request ID as decimal string |  -  |
 **400** | Invalid or missing Request ID |  -  |
+**422** | The storage request parameters are not valid |  -  |
 **404** | Request ID not found |  -  |
 **503** | Persistence is not enabled |  -  |
 
@@ -486,7 +487,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **offer_storage**
-> SalesAvailabilityREAD offer_storage(sales_availability_create=sales_availability_create)
+> SalesAvailabilityREAD offer_storage(sales_availability=sales_availability)
 
 Offers storage for sale
 
@@ -495,7 +496,7 @@ Offers storage for sale
 
 ```python
 import codex_api_client
-from codex_api_client.models.sales_availability_create import SalesAvailabilityCREATE
+from codex_api_client.models.sales_availability import SalesAvailability
 from codex_api_client.models.sales_availability_read import SalesAvailabilityREAD
 from codex_api_client.rest import ApiException
 from pprint import pprint
@@ -511,11 +512,11 @@ configuration = codex_api_client.Configuration(
 with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = codex_api_client.MarketplaceApi(api_client)
-    sales_availability_create = codex_api_client.SalesAvailabilityCREATE() # SalesAvailabilityCREATE |  (optional)
+    sales_availability = codex_api_client.SalesAvailability() # SalesAvailability |  (optional)
 
     try:
         # Offers storage for sale
-        api_response = api_instance.offer_storage(sales_availability_create=sales_availability_create)
+        api_response = api_instance.offer_storage(sales_availability=sales_availability)
         print("The response of MarketplaceApi->offer_storage:\n")
         pprint(api_response)
     except Exception as e:
@@ -529,7 +530,7 @@ with codex_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sales_availability_create** | [**SalesAvailabilityCREATE**](SalesAvailabilityCREATE.md)|  | [optional] 
+ **sales_availability** | [**SalesAvailability**](SalesAvailability.md)|  | [optional] 
 
 ### Return type
 
@@ -550,7 +551,7 @@ No authorization required
 |-------------|-------------|------------------|
 **201** | Created storage availability |  -  |
 **400** | Invalid data input |  -  |
-**422** | Not enough node&#39;s storage quota available |  -  |
+**422** | Not enough node&#39;s storage quota available or the provided parameters did not pass validation |  -  |
 **500** | Error reserving availability |  -  |
 **503** | Persistence is not enabled |  -  |
 
@@ -623,7 +624,7 @@ No authorization required
 **204** | Availability successfully updated |  -  |
 **400** | Invalid data input |  -  |
 **404** | Availability not found |  -  |
-**422** | Not enough node&#39;s storage quota available |  -  |
+**422** | The provided parameters did not pass validation |  -  |
 **500** | Error reserving availability |  -  |
 **503** | Persistence is not enabled |  -  |
 

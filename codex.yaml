@@ -50,6 +50,10 @@ components:
       type: string
       description: The amount of tokens paid per byte per second per slot to hosts the client is willing to pay
 
+    CollateralPerByte:
+      type: string
+      description: Number as decimal string that represents how much collateral per byte is asked from hosts that wants to fill a slots
+
     Duration:
       type: integer
       format: int64
@@ -70,6 +74,8 @@ components:
 
     SPRRead:
       type: object
+      required:
+        - spr
       properties:
         spr:
           $ref: "#/components/schemas/SPR"
@@ -82,6 +88,8 @@ components:
 
     Content:
       type: object
+      required:
+       - cid
       description: Parameters specifying the content
       properties:
         cid:
@@ -89,6 +97,12 @@ components:
 
     Node:
       type: object
+      required:
+       - nodeId
+       - peerId
+       - record
+       - address
+       - seen
       properties:
         nodeId:
           type: string
@@ -110,9 +124,15 @@ components:
         revision:
           type: string
           example: 0c647d8
+        contracts:
+          type: string
+          example: 0b537c7
 
     PeersTable:
       type: object
+      required:
+       - localNode
+       - nodes
       properties:
         localNode:
           $ref: "#/components/schemas/Node"
@@ -123,6 +143,14 @@ components:
 
     DebugInfo:
       type: object
+      required:
+        - id
+        - addrs
+        - repo
+        - spr
+        - announceAddresses
+        - table
+        - codex
       properties:
         id:
           $ref: "#/components/schemas/PeerId"
@@ -146,9 +174,12 @@ components:
 
     SalesAvailability:
       type: object
+      required:
+        - totalSize
+        - duration
+        - minPricePerBytePerSecond
+        - totalCollateral
       properties:
-        id:
-          $ref: "#/components/schemas/Id"
         totalSize:
           type: integer
           format: int64
@@ -161,28 +192,42 @@ components:
         totalCollateral:
           type: string
           description: Total collateral (in amount of tokens) that can be used for matching requests
+        enabled:
+          type: boolean
+          description: Enable the ability to receive sales on this availability.
+          default: true
+        until:
+          type: integer
+          description: Specifies the latest timestamp, after which the availability will no longer host any slots. If set to 0, there will be no restrictions.
+          default: 0
 
     SalesAvailabilityREAD:
+      required:
+        - id
+        - totalRemainingCollateral
       allOf:
         - $ref: "#/components/schemas/SalesAvailability"
         - type: object
           properties:
+            id:
+              $ref: "#/components/schemas/Id"
+              readonly: true
             freeSize:
               type: integer
               format: int64
-              description: Unused size of availability's storage in bytes
-
-    SalesAvailabilityCREATE:
-      allOf:
-        - $ref: "#/components/schemas/SalesAvailability"
-        - required:
-            - totalSize
-            - minPricePerBytePerSecond
-            - totalCollateral
-            - duration
+              description: Unused size of availability's storage in bytes as decimal string
+              readOnly: true
+            totalRemainingCollateral:
+              type: string
+              description: Total collateral effective (in amount of tokens) that can be used for matching requests
+              readOnly: true
 
     Slot:
       type: object
+      required:
+        - id
+        - request
+        - slotIndex
       properties:
         id:
           $ref: "#/components/schemas/SlotId"
@@ -195,9 +240,11 @@ components:
 
     SlotAgent:
       type: object
+      required:
+        - state
+        - requestId
+        - slotIndex
       properties:
-        id:
-          $ref: "#/components/schemas/SlotId"
         slotIndex:
           type: integer
           format: int64
@@ -228,6 +275,13 @@ components:
 
     Reservation:
       type: object
+      required:
+        - id
+        - availabilityId
+        - size
+        - requestId
+        - slotIndex
+        - validUntil
       properties:
         id:
           $ref: "#/components/schemas/Id"
@@ -243,6 +297,9 @@ components:
           type: integer
           format: int64
           description: Slot Index number
+        validUntil:
+          type: integer
+          description: Timestamp after which the reservation will no longer be valid.
 
     StorageRequestCreation:
       type: object
@@ -270,8 +327,7 @@ components:
           default: 1
           minimum: 1
         collateralPerByte:
-          type: string
-          description: Number as decimal string that represents how much collateral per byte is asked from hosts that wants to fill a slots
+          $ref: "#/components/schemas/CollateralPerByte"
         expiry:
           type: integer
           format: int64
@@ -279,7 +335,13 @@ components:
     StorageAsk:
       type: object
       required:
+        - slots
+        - slotSize
+        - duration
+        - proofProbability
         - pricePerBytePerSecond
+        - collateralPerByte
+        - maxSlotLoss
       properties:
         slots:
           description: Number of slots (eq. hosts) that the Request want to have the content spread over
@@ -288,13 +350,15 @@ components:
         slotSize:
           type: integer
           format: int64
-          description: Amount of storage per slot (in bytes) as decimal string
+          description: Amount of storage per slot in bytes
         duration:
           $ref: "#/components/schemas/Duration"
         proofProbability:
           $ref: "#/components/schemas/ProofProbability"
         pricePerBytePerSecond:
           $ref: "#/components/schemas/PricePerBytePerSecond"
+        collateralPerByte:
+          $ref: "#/components/schemas/CollateralPerByte"
         maxSlotLoss:
           type: integer
           format: int64
@@ -302,6 +366,13 @@ components:
 
     StorageRequest:
       type: object
+      required:
+       - id
+       - client
+       - ask
+       - content
+       - expiry
+       - nonce
       properties:
         id:
           type: string
@@ -320,13 +391,16 @@ components:
 
     Purchase:
       type: object
+      required:
+        - state
+        - requestId
       properties:
         state:
           type: string
           description: Description of the Request's state
           enum:
             - cancelled
-            - error
+            - errored
             - failed
             - finished
             - pending
@@ -335,12 +409,17 @@ components:
             - unknown
         error:
           type: string
+          nullable: true
           description: If Request failed, then here is presented the error message
         request:
           $ref: "#/components/schemas/StorageRequest"
+        requestId:
+          $ref: "#/components/schemas/Id"
 
     DataList:
       type: object
+      required:
+        - content
       properties:
         content:
           type: array
@@ -349,6 +428,9 @@ components:
 
     DataItem:
       type: object
+      required:
+        - cid
+        - manifest
       properties:
         cid:
           $ref: "#/components/schemas/Cid"
@@ -357,6 +439,11 @@ components:
 
     ManifestItem:
       type: object
+      required:
+        - treeCid
+        - datasetSize
+        - blockSize
+        - protected
       properties:
         treeCid:
           $ref: "#/components/schemas/Cid"
@@ -384,6 +471,11 @@ components:
 
     Space:
       type: object
+      required:
+        - totalBlocks
+        - quotaMaxBytes
+        - quotaUsedBytes
+        - quotaReservedBytes
       properties:
         totalBlocks:
           description: "Number of blocks stored by the node"
@@ -502,6 +594,8 @@ paths:
             text/plain:
               schema:
                 type: string
+        "422":
+          description: The mimetype of the filename is invalid
         "500":
           description: Well it was bad-bad and the upload did not work out
 
@@ -702,7 +796,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SalesAvailabilityCREATE"
+              $ref: "#/components/schemas/SalesAvailability"
       responses:
         "201":
           description: Created storage availability
@@ -713,7 +807,7 @@ paths:
         "400":
           description: Invalid data input
         "422":
-          description: Not enough node's storage quota available
+          description: Not enough node's storage quota available or the provided parameters did not pass validation
         "500":
           description: Error reserving availability
         "503":
@@ -746,7 +840,7 @@ paths:
         "404":
           description: Availability not found
         "422":
-          description: Not enough node's storage quota available
+          description: The provided parameters did not pass validation
         "500":
           description: Error reserving availability
         "503":
@@ -809,6 +903,8 @@ paths:
                 type: string
         "400":
           description: Invalid or missing Request ID
+        "422":
+          description: The storage request parameters are not valid
         "404":
           description: Request ID not found
         "503":
@@ -866,7 +962,7 @@ paths:
         "200":
           description: Node's SPR
           content:
-            plain/text:
+            text/plain:
               schema:
                 $ref: "#/components/schemas/SPR"
             application/json:
@@ -884,7 +980,7 @@ paths:
         "200":
           description: Node's Peer ID
           content:
-            plain/text:
+            text/plain:
               schema:
                 $ref: "#/components/schemas/PeerId"
             application/json:

@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from codex_api_client.models.storage_request import StorageRequest
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,19 +28,17 @@ class Purchase(BaseModel):
     """
     Purchase
     """ # noqa: E501
-    state: Optional[StrictStr] = Field(default=None, description="Description of the Request's state")
+    state: StrictStr = Field(description="Description of the Request's state")
     error: Optional[StrictStr] = Field(default=None, description="If Request failed, then here is presented the error message")
     request: Optional[StorageRequest] = None
-    __properties: ClassVar[List[str]] = ["state", "error", "request"]
+    request_id: Annotated[str, Field(min_length=66, strict=True, max_length=66)] = Field(description="32bits identifier encoded in hex-decimal string.", alias="requestId")
+    __properties: ClassVar[List[str]] = ["state", "error", "request", "requestId"]
 
     @field_validator('state')
     def state_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['cancelled', 'error', 'failed', 'finished', 'pending', 'started', 'submitted', 'unknown']):
-            raise ValueError("must be one of enum values ('cancelled', 'error', 'failed', 'finished', 'pending', 'started', 'submitted', 'unknown')")
+        if value not in set(['cancelled', 'errored', 'failed', 'finished', 'pending', 'started', 'submitted', 'unknown']):
+            raise ValueError("must be one of enum values ('cancelled', 'errored', 'failed', 'finished', 'pending', 'started', 'submitted', 'unknown')")
         return value
 
     model_config = ConfigDict(
@@ -84,6 +83,11 @@ class Purchase(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of request
         if self.request:
             _dict['request'] = self.request.to_dict()
+        # set to None if error (nullable) is None
+        # and model_fields_set contains the field
+        if self.error is None and "error" in self.model_fields_set:
+            _dict['error'] = None
+
         return _dict
 
     @classmethod
@@ -98,7 +102,8 @@ class Purchase(BaseModel):
         _obj = cls.model_validate({
             "state": obj.get("state"),
             "error": obj.get("error"),
-            "request": StorageRequest.from_dict(obj["request"]) if obj.get("request") is not None else None
+            "request": StorageRequest.from_dict(obj["request"]) if obj.get("request") is not None else None,
+            "requestId": obj.get("requestId")
         })
         return _obj
 

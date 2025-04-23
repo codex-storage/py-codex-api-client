@@ -5,9 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state** | **str** | Description of the Request&#39;s state | [optional] 
+**state** | **str** | Description of the Request&#39;s state | 
 **error** | **str** | If Request failed, then here is presented the error message | [optional] 
 **request** | [**StorageRequest**](StorageRequest.md) |  | [optional] 
+**request_id** | **str** | 32bits identifier encoded in hex-decimal string. | 
 
 ## Example
 

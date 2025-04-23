@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**spr** | **str** | Signed Peer Record (libp2p) | [optional] 
+**spr** | **str** | Signed Peer Record (libp2p) | 
 
 ## Example
 

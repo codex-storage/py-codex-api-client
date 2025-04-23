@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**local_node** | [**Node**](Node.md) |  | [optional] 
-**nodes** | [**List[Node]**](Node.md) |  | [optional] 
+**local_node** | [**Node**](Node.md) |  | 
+**nodes** | [**List[Node]**](Node.md) |  | 
 
 ## Example
 

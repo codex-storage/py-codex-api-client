@@ -5,12 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**slots** | **int** | Number of slots (eq. hosts) that the Request want to have the content spread over | [optional] 
-**slot_size** | **int** | Amount of storage per slot (in bytes) as decimal string | [optional] 
-**duration** | **int** | The duration of the request in seconds | [optional] 
-**proof_probability** | **str** | How often storage proofs are required as decimal string | [optional] 
+**slots** | **int** | Number of slots (eq. hosts) that the Request want to have the content spread over | 
+**slot_size** | **int** | Amount of storage per slot in bytes | 
+**duration** | **int** | The duration of the request in seconds | 
+**proof_probability** | **str** | How often storage proofs are required as decimal string | 
 **price_per_byte_per_second** | **str** | The amount of tokens paid per byte per second per slot to hosts the client is willing to pay | 
-**max_slot_loss** | **int** | Max slots that can be lost without data considered to be lost | [optional] 
+**collateral_per_byte** | **str** | Number as decimal string that represents how much collateral per byte is asked from hosts that wants to fill a slots | 
+**max_slot_loss** | **int** | Max slots that can be lost without data considered to be lost | 
 
 ## Example
 

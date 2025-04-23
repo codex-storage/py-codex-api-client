@@ -26,10 +26,10 @@ class ManifestItem(BaseModel):
     """
     ManifestItem
     """ # noqa: E501
-    tree_cid: Optional[StrictStr] = Field(default=None, description="Content Identifier as specified at https://github.com/multiformats/cid", alias="treeCid")
-    dataset_size: Optional[StrictInt] = Field(default=None, description="Length of original content in bytes", alias="datasetSize")
-    block_size: Optional[StrictInt] = Field(default=None, description="Size of blocks", alias="blockSize")
-    protected: Optional[StrictBool] = Field(default=None, description="Indicates if content is protected by erasure-coding")
+    tree_cid: StrictStr = Field(description="Content Identifier as specified at https://github.com/multiformats/cid", alias="treeCid")
+    dataset_size: StrictInt = Field(description="Length of original content in bytes", alias="datasetSize")
+    block_size: StrictInt = Field(description="Size of blocks", alias="blockSize")
+    protected: StrictBool = Field(description="Indicates if content is protected by erasure-coding")
     filename: Optional[StrictStr] = Field(default=None, description="The original name of the uploaded content (optional)")
     mimetype: Optional[StrictStr] = Field(default=None, description="The original mimetype of the uploaded content (optional)")
     __properties: ClassVar[List[str]] = ["treeCid", "datasetSize", "blockSize", "protected", "filename", "mimetype"]

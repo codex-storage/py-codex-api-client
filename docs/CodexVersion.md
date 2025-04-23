@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version** | **str** |  | [optional] 
 **revision** | **str** |  | [optional] 
+**contracts** | **str** |  | [optional] 
 
 ## Example
 
