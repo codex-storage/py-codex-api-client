@@ -14,7 +14,9 @@ Method | HTTP request | Description
 
 Connect to a peer
 
-If `addrs` param is supplied, it will be used to dial the peer, otherwise the `peerId` is used to invoke peer discovery, if it succeeds the returned addresses will be used to dial. 
+If `addrs` param is supplied, it will be used to dial the peer, otherwise the `peerId` is used
+to invoke peer discovery, if it succeeds the returned addresses will be used to dial.
+
 
 ### Example
 
