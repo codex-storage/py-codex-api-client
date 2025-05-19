@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **enabled** | **bool** | Enable the ability to receive sales on this availability. | [optional] [default to True]
 **until** | **int** | Specifies the latest timestamp, after which the availability will no longer host any slots. If set to 0, there will be no restrictions. | [optional] [default to 0]
 **id** | **str** | 32bits identifier encoded in hex-decimal string. | 
-**free_size** | **int** | Unused size of availability&#39;s storage in bytes as decimal string | [optional] [readonly] 
+**free_size** | **int** | Unused size of availability&#39;s storage in bytes as decimal string | [readonly] 
 **total_remaining_collateral** | **str** | Total collateral effective (in amount of tokens) that can be used for matching requests | [readonly] 
 
 ## Example

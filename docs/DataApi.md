@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost:8080/api/codex/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**delete_local**](DataApi.md#delete_local) | **DELETE** /data/{cid} | Deletes either a single block or an entire dataset from the local node.
 [**download_local**](DataApi.md#download_local) | **GET** /data/{cid} | Download a file from the local node in a streaming manner. If the file is not available locally, a 404 is returned.
 [**download_network**](DataApi.md#download_network) | **POST** /data/{cid}/network | Download a file from the network to the local node if it&#39;s not available locally. Note: Download is performed async. Call can return before download is completed.
 [**download_network_manifest**](DataApi.md#download_network_manifest) | **GET** /data/{cid}/network/manifest | Download only the dataset manifest from the network to the local node if it&#39;s not available locally.
@@ -12,6 +13,71 @@ Method | HTTP request | Description
 [**space**](DataApi.md#space) | **GET** /space | Gets a summary of the storage space allocation of the node.
 [**upload**](DataApi.md#upload) | **POST** /data | Upload a file in a streaming manner. Once finished, the file is stored in the node and can be retrieved by any node in the network using the returned CID.
 
+
+# **delete_local**
+> delete_local(cid)
+
+Deletes either a single block or an entire dataset from the local node.
+
+### Example
+
+
+```python
+import codex_api_client
+from codex_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8080/api/codex/v1
+# See configuration.py for a list of all supported configuration parameters.
+configuration = codex_api_client.Configuration(
+    host = "http://localhost:8080/api/codex/v1"
+)
+
+
+# Enter a context with an instance of the API client
+with codex_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = codex_api_client.DataApi(api_client)
+    cid = 'cid_example' # str | Block or dataset to be deleted.
+
+    try:
+        # Deletes either a single block or an entire dataset from the local node.
+        api_instance.delete_local(cid)
+    except Exception as e:
+        print("Exception when calling DataApi->delete_local: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **cid** | **str**| Block or dataset to be deleted. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Data was successfully deleted. |  -  |
+**400** | Invalid CID is specified |  -  |
+**500** | There was an error during deletion |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **download_local**
 > bytearray download_local(cid)
