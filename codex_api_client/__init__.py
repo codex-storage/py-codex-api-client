@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 
 # import apis into sdk package
 from codex_api_client.api.data_api import DataApi
