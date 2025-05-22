@@ -562,7 +562,9 @@ No authorization required
 
 Updates availability
 
-The new parameters will be only considered for new requests. Existing Requests linked to this Availability will continue as is. 
+The new parameters will be only considered for new requests.
+Existing Requests linked to this Availability will continue as is.
+
 
 ### Example
 
