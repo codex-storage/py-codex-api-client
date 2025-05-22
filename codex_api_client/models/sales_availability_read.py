@@ -34,7 +34,7 @@ class SalesAvailabilityREAD(BaseModel):
     enabled: Optional[StrictBool] = Field(default=True, description="Enable the ability to receive sales on this availability.")
     until: Optional[StrictInt] = Field(default=0, description="Specifies the latest timestamp, after which the availability will no longer host any slots. If set to 0, there will be no restrictions.")
     id: Annotated[str, Field(min_length=66, strict=True, max_length=66)] = Field(description="32bits identifier encoded in hex-decimal string.")
-    free_size: Optional[StrictInt] = Field(default=None, description="Unused size of availability's storage in bytes as decimal string", alias="freeSize")
+    free_size: StrictInt = Field(description="Unused size of availability's storage in bytes as decimal string", alias="freeSize")
     total_remaining_collateral: StrictStr = Field(description="Total collateral effective (in amount of tokens) that can be used for matching requests", alias="totalRemainingCollateral")
     __properties: ClassVar[List[str]] = ["totalSize", "duration", "minPricePerBytePerSecond", "totalCollateral", "enabled", "until", "id", "freeSize", "totalRemainingCollateral"]
 

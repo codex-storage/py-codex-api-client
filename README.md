@@ -45,15 +45,13 @@ configuration = codex_api_client.Configuration(
 with codex_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = codex_api_client.DataApi(api_client)
-    cid = 'cid_example' # str | File to be downloaded.
+    cid = 'cid_example' # str | Block or dataset to be deleted.
 
     try:
-        # Download a file from the local node in a streaming manner. If the file is not available locally, a 404 is returned.
-        api_response = api_instance.download_local(cid)
-        print("The response of DataApi->download_local:\n")
-        pprint(api_response)
+        # Deletes either a single block or an entire dataset from the local node.
+        api_instance.delete_local(cid)
     except ApiException as e:
-        print("Exception when calling DataApi->download_local: %s\n" % e)
+        print("Exception when calling DataApi->delete_local: %s\n" % e)
 
 ```
 
@@ -63,6 +61,7 @@ All URIs are relative to *http://localhost:8080/api/codex/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DataApi* | [**delete_local**](docs/DataApi.md#delete_local) | **DELETE** /data/{cid} | Deletes either a single block or an entire dataset from the local node.
 *DataApi* | [**download_local**](docs/DataApi.md#download_local) | **GET** /data/{cid} | Download a file from the local node in a streaming manner. If the file is not available locally, a 404 is returned.
 *DataApi* | [**download_network**](docs/DataApi.md#download_network) | **POST** /data/{cid}/network | Download a file from the network to the local node if it&#39;s not available locally. Note: Download is performed async. Call can return before download is completed.
 *DataApi* | [**download_network_manifest**](docs/DataApi.md#download_network_manifest) | **GET** /data/{cid}/network/manifest | Download only the dataset manifest from the network to the local node if it&#39;s not available locally.
